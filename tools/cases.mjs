@@ -98,11 +98,11 @@ function page(c, i) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(c.sum)}">
 <meta name="theme-color" content="#F6F3EC">
-<link rel="canonical" href="https://csmarquez939.github.io/work/${c.slug}.html">
+<link rel="canonical" href="https://cmarquezworks.github.io/work/${c.slug}.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(c.sum)}">
-<meta property="og:image" content="https://csmarquez939.github.io/assets/img/work/${c.slug}-1600.jpg">
+<meta property="og:image" content="https://cmarquezworks.github.io/assets/img/work/${c.slug}-1600.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -191,7 +191,7 @@ ${c.did.map((d) => `          <li><svg class="ink" viewBox="0 0 28 28" aria-hidd
     <span>© 2026 Christian Marquez</span>
     <span>HTML, CSS, JS. No frameworks, no template.</span>
     <span>this page: <span data-weight>measuring…</span></span>
-    <a href="https://github.com/csmarquez939/csmarquez939.github.io" target="_blank" rel="noopener">view the source ↗</a>
+    <a href="https://github.com/cmarquezworks/cmarquezworks.github.io" target="_blank" rel="noopener">view the source ↗</a>
   </div>
 </footer>
 </body>

@@ -1,6 +1,6 @@
 # Christian Marquez · portfolio
 
-**Live:** https://csmarquez939.github.io/
+**Live:** https://cmarquezworks.github.io/
 
 A hand-coded portfolio that inspects itself. Orange "redlines" mark the page's own fonts, sizes, gaps and colour contrast, measured live from the page, so they change when you resize the window. Press **I** or use the **Inspect** switch to turn them off.
 
