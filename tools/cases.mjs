@@ -1,13 +1,17 @@
 // Writes work/<slug>.html from the data below: node tools/cases.mjs
-// The pages are plain HTML afterwards; this script only keeps the three in step.
+// The pages are plain HTML afterwards; this script keeps the three in step and draws the red-pen
+// loops at each callout with the same maths the home page uses (assets/js/marks.js).
 import { writeFileSync } from 'node:fs';
+import { roughEllipse } from '../assets/js/marks.js';
+import { mailtoFor } from '../assets/js/contact.js';
 
-const NOTE = 'I last worked on this in 2024; the live site may have changed since. The screenshot shows my version.';
-const MAILTO = 'mailto:designdadstudio@gmail.com?subject=Full-time%20role%3A%20UI%2FUX%20%2B%20frontend';
+const MARGIN = 'last worked on this in 2024: the live site may have changed since';
+const MAILTO = mailtoFor(0).replace(/&/g, '&amp;');
+const PEN_FLAG = `<script>(function (d) { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; d.classList.add('pen-ready'); setTimeout(function () { if (!d.classList.contains('pen-live')) d.classList.remove('pen-ready'); }, 3000); })(document.documentElement);</script>`;
 
 const cases = [
   {
-    slug: 'allcare', name: 'AllCare', no: '01', live: 'https://www.allcare.ph/', liveLabel: 'allcare.ph',
+    slug: 'allcare', name: 'AllCare', live: 'https://www.allcare.ph/', liveLabel: 'allcare.ph',
     role: 'Lead: redesign + frontend', stack: 'Ruby on Rails',
     alt: 'AllCare home page: a woman at a laptop beside the MyBenefits app on a phone',
     sum: 'AllCare bundles worker benefits (HMO, life insurance, teleconsultation, dental care and more) into one membership. I led the redesign of the public site and the whole logged-in side, then built both inside the Rails app.',
@@ -20,13 +24,13 @@ const cases = [
     ],
     shipped: 'The redesigned public site and the member dashboard, live in the Rails app.',
     callouts: [
-      { x: 81, y: 2.5, w: 8, h: 5.5, label: 'secondary action, outlined', cls: 'right' },
-      { x: 5, y: 15, w: 19.5, h: 60, label: 'dashboard: one action per card', cls: '' },
-      { x: 58, y: 25, w: 31.5, h: 40, label: 'headline → detail → one button', cls: 'right' },
+      { x: 81, y: 2.5, w: 8, h: 5.5, label: 'secondary action, outlined' },
+      { x: 5, y: 15, w: 19.5, h: 60, label: 'dashboard: one action per card' },
+      { x: 58, y: 25, w: 31.5, h: 40, label: 'headline → detail → one button' },
     ],
   },
   {
-    slug: 'asklex', name: 'Ask Lex PH Academy', no: '02', live: 'https://asklexph.com/', liveLabel: 'asklexph.com',
+    slug: 'asklex', name: 'Ask Lex PH Academy', live: 'https://asklexph.com/', liveLabel: 'asklexph.com',
     role: 'Lead UI/UX, frontend support', stack: 'Ruby on Rails',
     alt: 'Ask Lex PH Academy home page with a green hero, a row of figures and course categories',
     sum: 'Ask Lex PH Academy runs courses, mentoring and events for students and professionals. I led the UI/UX design of the platform and supported its frontend build in Ruby on Rails.',
@@ -39,13 +43,13 @@ const cases = [
     ],
     shipped: 'The platform design and the public pages, live in the Rails app.',
     callouts: [
-      { x: 83, y: 1.5, w: 8.5, h: 4.8, label: 'the only filled button', cls: 'right' },
-      { x: 5, y: 56, w: 90, h: 15.5, label: 'proof row: figure, label, context', cls: 'above' },
-      { x: 5, y: 88.5, w: 90, h: 11, label: 'browse by category or by mentor', cls: 'above' },
+      { x: 83, y: 1.5, w: 8.5, h: 4.8, label: 'the only filled button' },
+      { x: 5, y: 56, w: 90, h: 15.5, label: 'proof row: figure, label, context' },
+      { x: 5, y: 88.5, w: 90, h: 11, label: 'browse by category or by mentor' },
     ],
   },
   {
-    slug: 'marygrace', name: 'Mary Grace Café', no: '03', live: 'https://www.marygracecafe.com/', liveLabel: 'marygracecafe.com',
+    slug: 'marygrace', name: 'Mary Grace Café', live: 'https://www.marygracecafe.com/', liveLabel: 'marygracecafe.com',
     role: 'Frontend developer', stack: 'Ruby on Rails',
     alt: 'Mary Grace Café home page: the lit shopfront at night with a script welcome',
     sum: 'Mary Grace is a well-loved Filipino café and bakery. I built the frontend of its website from the design, inside a Ruby on Rails app, and kept the brand’s warmth on every screen size.',
@@ -58,14 +62,29 @@ const cases = [
     ],
     shipped: 'The public website, live in the Rails app.',
     callouts: [
-      { x: 0.4, y: 0.4, w: 99.2, h: 4.4, label: 'delivery offer, always on top', cls: '' },
-      { x: 47.3, y: 5.4, w: 5.4, h: 9.4, label: 'logo centred, nav split around it', cls: '' },
-      { x: 78.4, y: 7.1, w: 10.6, h: 5.9, label: 'one button: Order Online', cls: 'right' },
+      { x: 0.4, y: 0.4, w: 99.2, h: 4.4, label: 'delivery offer, always on top' },
+      { x: 47.3, y: 5.4, w: 5.4, h: 9.4, label: 'logo centred, nav split around it' },
+      { x: 78.4, y: 7.1, w: 10.6, h: 5.9, label: 'one button: Order Online' },
     ],
   },
 ];
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+const W = 1600;
+const H = 1066;
+
+// A loop round each callout; a box nearly as wide as the screenshot gets a wavy underline instead.
+function inkFor(k, seed) {
+  const x = (k.x * W) / 100;
+  const y = (k.y * H) / 100;
+  const w = (k.w * W) / 100;
+  const h = (k.h * H) / 100;
+  if (k.w > 92) {
+    const b = Math.round(y + h + 10);
+    return `M${Math.round(x + 8)} ${b} C ${Math.round(x + w * 0.3)} ${b - 9}, ${Math.round(x + w * 0.65)} ${b + 9}, ${Math.round(x + w - 8)} ${b - 3}`;
+  }
+  return roughEllipse(x, y, w, h, seed);
+}
 
 function page(c, i) {
   const prev = cases[(i + cases.length - 1) % cases.length];
@@ -78,7 +97,7 @@ function page(c, i) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(c.sum)}">
-<meta name="theme-color" content="#EEF0F3">
+<meta name="theme-color" content="#F6F3EC">
 <link rel="canonical" href="https://csmarquez939.github.io/work/${c.slug}.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="${esc(title)}">
@@ -88,92 +107,91 @@ function page(c, i) {
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@900&family=Caveat:wght@500;700&family=Courier+Prime:wght@400;700&display=swap">
 <link rel="stylesheet" href="../assets/css/site.css">
+${PEN_FLAG}
 <script type="module" src="../assets/js/site.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="site-head">
+<header class="head">
   <div class="wrap">
-    <a class="mark" href="../index.html" aria-label="Christian Marquez, home">cm<b>/</b></a>
-    <nav class="nav" aria-label="Main">
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#contact">Contact</a>
-    </nav>
-    <span class="status"><i aria-hidden="true"></i>Available now</span>
-    <a class="resume-btn resume-btn--icon" href="../assets/resume.pdf" download="Christian-Marquez-Resume.pdf" aria-label="Download résumé (PDF)"><span class="rb-label">CV</span><span class="rb-ic" aria-hidden="true">↓</span></a>
-    <a class="contact-btn contact-btn--sm" href="${MAILTO}">Work with me <span aria-hidden="true">→</span></a>
+    <a class="logo" href="../index.html" aria-label="Christian Marquez, home">cm/</a>
+    <nav aria-label="Main"><a href="../index.html#work">work</a><a href="../index.html#about">about</a><a href="../index.html#contact">contact</a></nav>
   </div>
 </header>
 
 <main id="main">
-  <section class="cs-head">
-    <div class="wrap grid">
-      <a class="back link" href="../index.html#work">← All work</a>
-      <h1>${esc(c.name)}</h1>
-      <table class="tb">
-        <tr><th scope="row">Case</th><td>${c.no} / 03</td></tr>
-        <tr><th scope="row">Role</th><td>${esc(c.role)}</td></tr>
-        <tr><th scope="row">Stack</th><td>${esc(c.stack)}</td></tr>
-        <tr><th scope="row">Until</th><td>2024</td></tr>
-        <tr><th scope="row">Live</th><td><a class="link" href="${c.live}" target="_blank" rel="noopener">${c.liveLabel} ↗</a></td></tr>
-      </table>
-      <p class="sum">${esc(c.sum)}</p>
-      <p class="note">${NOTE}</p>
-    </div>
-  </section>
-
-  <section class="cs-body" aria-label="Case study">
-    <div class="wrap grid">
-      <figure class="shot lensable" data-zoom="../assets/img/work/${c.slug}-2400.webp">
-        <picture>
-          <source type="image/webp" srcset="../assets/img/work/${c.slug}-800.webp 800w, ../assets/img/work/${c.slug}-1600.webp 1600w, ../assets/img/work/${c.slug}-2400.webp 2400w" sizes="(max-width: 1400px) 92vw, 1320px">
-          <img src="../assets/img/work/${c.slug}-1600.jpg" width="1600" height="1066" alt="${esc(c.alt)}">
-        </picture>
-${c.callouts.map((k, n) => `        <div class="callout ${k.cls}" style="--x:${k.x}%;--y:${k.y}%;--w:${k.w}%;--h:${k.h}%" aria-hidden="true"><span data-n="${n + 1}">${esc(k.label)}</span></div>`).join('\n')}
-      </figure>
-      <ol class="legend" aria-label="Notes on the screenshot">
-${c.callouts.map((k) => `        <li>${esc(k.label)}</li>`).join('\n')}
-      </ol>
-
-      <h2 class="label">The brief</h2>
-      <p class="text">${esc(c.brief)}</p>
-
-      <h2 class="label">What I did</h2>
-      <ol class="keys">
-${c.did.map((d) => `        <li><span>${esc(d)}</span></li>`).join('\n')}
-      </ol>
-
-      <h2 class="label">What shipped</h2>
-      <p class="text">${esc(c.shipped)} <a class="link" href="${c.live}" target="_blank" rel="noopener">See it live ↗</a></p>
-    </div>
-  </section>
-
-  <section class="cs-cta" aria-labelledby="cta-h">
+  <article class="cs" aria-labelledby="cs-h">
     <div class="wrap">
-      <h2 id="cta-h">Like this work? Let's talk.</h2>
-      <div class="contact-actions">
-        <a class="contact-btn contact-btn--xl" href="${MAILTO}">Work with me <span aria-hidden="true">→</span></a>
-        <a class="resume-btn resume-btn--xl" href="../assets/resume.pdf" download="Christian-Marquez-Resume.pdf"><span class="rb-label">Download résumé</span><span class="rb-ic" aria-hidden="true">↓</span></a>
+      <a class="back" href="../index.html#work">← all work</a>
+      <div class="cs-top">
+        <div>
+          <h1 id="cs-h">${esc(c.name)}</h1>
+          <p class="typed">${esc(c.sum)}</p>
+        </div>
+        <div data-pen="load">
+          <dl class="spec"><div><dt>role</dt><dd>${esc(c.role)}</dd></div><div><dt>stack</dt><dd>${esc(c.stack)}</dd></div><div><dt>until</dt><dd>2024</dd></div><div><dt>live</dt><dd><a href="${c.live}" target="_blank" rel="noopener">${c.liveLabel} ↗</a></dd></div></dl>
+          <p class="hand cs-margin">${MARGIN}</p>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <nav class="wrap pager" aria-label="More case studies">
-    <a href="${prev.slug}.html"><small>← Previous</small><b>${esc(prev.name)}</b></a>
-    <a href="${next.slug}.html"><small>Next →</small><b>${esc(next.name)}</b></a>
-  </nav>
+      <div class="cs-shot" data-pen>
+        <figure class="print print--wide" data-print style="--r: -.6deg">
+          <span class="tape"></span><span class="tape tape-r"></span>
+          <div class="print-in">
+            <span class="shot">
+              <picture>
+                <source type="image/webp" srcset="../assets/img/work/${c.slug}-800.webp 800w, ../assets/img/work/${c.slug}-1600.webp 1600w, ../assets/img/work/${c.slug}-2400.webp 2400w" sizes="(max-width: 1400px) 92vw, 1240px">
+                <img src="../assets/img/work/${c.slug}-1600.jpg" width="1600" height="1066" alt="${esc(c.alt)}">
+              </picture>
+              <svg class="ink ink-shot" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true">
+${c.callouts.map((k, n) => `                <path class="mark" pathLength="1" d="${inkFor(k, 100 + i * 10 + n)}"/>`).join('\n')}
+              </svg>
+${c.callouts.map((k, n) => `              <span class="callnum" style="--x: ${k.x}%; --y: ${k.y}%" aria-hidden="true">${n + 1}</span>`).join('\n')}
+            </span>
+            <span class="cap">${c.liveLabel} · as I left it in 2024</span>
+          </div>
+        </figure>
+        <ol class="legend" aria-label="Notes on the screenshot">
+${c.callouts.map((k) => `          <li><span class="hand">${esc(k.label)}</span></li>`).join('\n')}
+        </ol>
+      </div>
+
+      <div class="cs-body">
+        <h2>the brief</h2>
+        <p class="typed">${esc(c.brief)}</p>
+        <h2>what I did</h2>
+        <ul class="checks" data-pen>
+${c.did.map((d) => `          <li><svg class="ink" viewBox="0 0 28 28" aria-hidden="true"><path class="mark" pathLength="1" d="M4 15 L 11 22 L 24 5"/></svg><span>${esc(d)}</span></li>`).join('\n')}
+        </ul>
+        <h2>what shipped</h2>
+        <p class="typed">${esc(c.shipped)} <a href="${c.live}" target="_blank" rel="noopener">see it live ↗</a></p>
+      </div>
+
+      <div class="cs-cta">
+        <a class="sticky" href="${MAILTO}" data-mail style="--r: 2deg">like this work?<small>tell me about your role, contract or project</small><span>→ email me</span></a>
+        <ul class="raw">
+          <li><a href="../assets/resume.pdf" download="Christian-Marquez-Resume.pdf" data-resume>résumé.pdf</a> <span>(3 pages)</span></li>
+          <li><a href="https://www.linkedin.com/in/cmarquezworks/" target="_blank" rel="noopener">linkedin</a></li>
+        </ul>
+      </div>
+
+      <nav class="pager" aria-label="More case studies">
+        <a class="tab" href="${prev.slug}.html"><small>← previous</small><b>${esc(prev.name)}</b></a>
+        <a class="tab" href="${next.slug}.html"><small>next →</small><b>${esc(next.name)}</b></a>
+      </nav>
+    </div>
+  </article>
 </main>
 
-<footer class="site-foot">
+<footer class="foot">
   <div class="wrap">
     <span>© 2026 Christian Marquez</span>
-    <a class="link" href="mailto:designdadstudio@gmail.com">designdadstudio@gmail.com</a>
-    <a class="link" href="https://www.linkedin.com/in/cmarquezworks/" target="_blank" rel="noopener">LinkedIn ↗</a>
-    <span>This page: <span data-weight>measuring…</span></span>
+    <span>HTML, CSS, JS. No frameworks, no template.</span>
+    <span>this page: <span data-weight>measuring…</span></span>
+    <a href="https://github.com/csmarquez939/csmarquez939.github.io" target="_blank" rel="noopener">view the source ↗</a>
   </div>
 </footer>
 </body>

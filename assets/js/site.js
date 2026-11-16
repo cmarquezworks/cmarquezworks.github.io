@@ -1,18 +1,12 @@
-import { initGlass } from './glass.js';
-import { initContact } from './contact.js';
-import { initResume } from './resume.js';
-import { initLens, initPeek } from './lens.js';
-import { initRuler } from './ruler.js';
+import { initPen } from './pen.js';
+import { initPrints, initPolaroid, initResume } from './notes.js';
+import { initNotepad } from './contact.js';
 
-document.documentElement.classList.add('js');
-
-const hero = document.querySelector('.hero');
-if (hero) initGlass(hero);
-initContact(); // builds the contact panel, which has its own résumé button…
-initResume(); // …so the résumé buttons are enhanced after it exists
-initLens();
-initPeek();
-initRuler();
+initPen();
+initPrints();
+initPolaroid();
+initResume();
+initNotepad();
 
 // Footer: what this visit actually downloaded.
 addEventListener('load', () => setTimeout(() => {

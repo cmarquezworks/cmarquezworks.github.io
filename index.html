@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Christian Marquez · UI/UX designer and frontend developer</title>
 <meta name="description" content="Christian Marquez designs interfaces and builds them: 9+ years of UI/UX design and frontend development. Available now for full-time, contract or project work.">
-<meta name="theme-color" content="#EEF0F3">
+<meta name="theme-color" content="#F6F3EC">
 <link rel="canonical" href="https://csmarquez939.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Christian Marquez · UI/UX designer and frontend developer">
@@ -16,184 +16,229 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@900&family=Caveat:wght@500;700&family=Courier+Prime:wght@400;700&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
+<script>(function (d) { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; d.classList.add('pen-ready'); setTimeout(function () { if (!d.classList.contains('pen-live')) d.classList.remove('pen-ready'); }, 3000); })(document.documentElement);</script>
 <script type="module" src="assets/js/site.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="site-head">
+<header class="head">
   <div class="wrap">
-    <a class="mark" href="#top" aria-label="Christian Marquez, back to top">cm<b>/</b></a>
-    <nav class="nav" aria-label="Main">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <span class="status"><i aria-hidden="true"></i>Available now</span>
-    <a class="resume-btn resume-btn--icon" href="assets/resume.pdf" download="Christian-Marquez-Resume.pdf" aria-label="Download résumé (PDF)"><span class="rb-label">CV</span><span class="rb-ic" aria-hidden="true">↓</span></a>
-    <a class="contact-btn contact-btn--sm" href="mailto:designdadstudio@gmail.com?subject=Full-time%20role%3A%20UI%2FUX%20%2B%20frontend">Work with me <span aria-hidden="true">→</span></a>
+    <a class="logo" href="#top" aria-label="Christian Marquez, back to top">cm/</a>
+    <nav aria-label="Main"><a href="#work">work</a><a href="#about">about</a><a href="#contact">contact</a></nav>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero" id="top" aria-labelledby="hero-h">
-    <canvas class="hero-canvas" aria-hidden="true"></canvas>
-    <div class="hero-text">
-      <h1 id="hero-h">Christian Marquez</h1>
-      <p>UI/UX designer and frontend developer with 9+ years of experience. I design the interface, then I build it, for clients in the Philippines, Canada and Japan.</p>
-    </div>
-    <div class="hero-tools">
-      <p class="hero-hint mono" aria-hidden="true">Move to steer the glass · click to drop a bead</p>
-      <button class="hero-pause" type="button" aria-pressed="false"><span class="hp-i" aria-hidden="true"></span><span class="hp-l">Pause glass</span></button>
-    </div>
-    <div class="hero-bar">
-      <div class="wrap">
-        <p class="mono">UI/UX designer + frontend developer — 9+ years</p>
-        <div class="hero-cta">
-          <a class="resume-btn" href="assets/resume.pdf" download="Christian-Marquez-Resume.pdf"><span class="rb-label">Download résumé</span><span class="rb-ic" aria-hidden="true">↓</span></a>
-          <a class="contact-btn" href="mailto:designdadstudio@gmail.com?subject=Full-time%20role%3A%20UI%2FUX%20%2B%20frontend">Work with me <span aria-hidden="true">→</span></a>
+  <section class="hero" id="top" data-pen="load" aria-labelledby="hero-h">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <h1 class="name" id="hero-h">Christian<br>Marquez</h1>
+        <svg class="ink under" viewBox="0 0 600 26" aria-hidden="true"><path class="mark" pathLength="1" d="M6 16 C 150 4, 360 24, 592 8"/></svg>
+        <p class="lead">UI/UX designer and frontend developer. I design the interface, then I build it.</p>
+        <div class="raw-wrap">
+          <ul class="raw">
+            <li><a href="assets/resume.pdf" download="Christian-Marquez-Resume.pdf" data-resume>résumé.pdf</a> <span>(3 pages)</span></li>
+            <li><a href="mailto:designdadstudio@gmail.com?subject=Full-time%20role%3A%20UI%2FUX%20%2B%20frontend&amp;body=Hi%20Christian%2C%0A%0AWe%20have%20a%20full-time%20role%20and%20would%20like%20to%20talk.%0A%0ARole%3A%0ATeam%3A%0ALink%3A%0A" data-mail>email me</a></li>
+            <li><a href="https://www.linkedin.com/in/cmarquezworks/" target="_blank" rel="noopener">linkedin</a></li>
+          </ul>
+          <div class="years">
+            <svg class="ink arrow" viewBox="0 0 96 56" aria-hidden="true"><path class="mark" pathLength="1" d="M90 48 C 66 40, 34 30, 10 10"/><path class="mark" pathLength="1" d="M8 28 L 9 8 L 28 11"/></svg>
+            <p class="hand">9+ years.<br>PH, Canada, Japan</p>
+          </div>
+        </div>
+        <a class="sticky" href="#contact">available now!<small>full-time, contract or project work</small><span>→ work with me</span></a>
+      </div>
+      <div class="hero-work">
+        <figure class="print" data-print style="--r: 2.4deg">
+          <span class="tape"></span><span class="tape tape-r"></span>
+          <a class="print-in" href="work/allcare.html" data-rescribble>
+            <span class="shot">
+              <picture>
+                <source type="image/webp" srcset="assets/img/work/allcare-800.webp 800w, assets/img/work/allcare-1600.webp 1600w" sizes="(max-width: 1100px) 92vw, 46vw">
+                <img src="assets/img/work/allcare-1600.jpg" width="1600" height="1066" alt="AllCare home page: a woman at a laptop beside the MyBenefits app on a phone">
+              </picture>
+              <svg class="ink ink-shot" viewBox="0 0 1600 1066" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" data-ellipse="80 160 312 640 11" d="M154.9 139.2 Q197.9 105.8 220.7 97.4 Q243.5 89.1 265.8 102.3 Q288.1 115.5 307 142.2 Q326 168.8 345.1 194.6 Q364.3 220.4 377.9 260.2 Q391.5 300 398.5 347.2 Q405.4 394.4 407.8 443.4 Q410.2 492.3 409 542.6 Q407.8 592.8 395.7 635.7 Q383.6 678.6 370.6 719.4 Q357.6 760.2 339.1 789.8 Q320.5 819.3 298.2 829.6 Q275.9 839.9 254 845.3 Q232.1 850.7 210.1 844.8 Q188.1 838.9 167.3 821 Q146.5 803.1 129 772.3 Q111.6 741.6 97 703.8 Q82.4 666 77 618.1 Q71.7 570.2 65.9 522.5 Q60.1 474.8 63.5 425.7 Q66.9 376.5 76.8 332 Q86.7 287.6 98.5 244.3 Q110.2 201.1 129 171 Q147.7 141 169.2 122.4 Q190.8 103.9 213.7 104.4 L236.7 105"/></svg>
+            </span>
+            <span class="cap">AllCare: redesign + frontend, Rails, 2024</span>
+          </a>
+        </figure>
+        <div class="hero-notes">
+          <svg class="ink up" viewBox="0 0 34 54" aria-hidden="true"><path class="mark" pathLength="1" d="M17 52 C 15 36, 19 20, 17 5"/><path class="mark" pathLength="1" d="M7 16 L 17 4 L 27 16"/></svg>
+          <p class="hand">one action per card</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="work" aria-labelledby="work-h">
+  <section class="work" id="work" aria-labelledby="work-h">
     <div class="wrap">
-      <div class="sec-head">
-        <h2 id="work-h">From brief<br> <em>to live site.</em></h2>
-      </div>
+      <h2 class="sec-h" id="work-h">From brief to live site.</h2>
 
-      <a class="case" href="work/allcare.html">
-        <figure class="shot lensable" data-zoom="assets/img/work/allcare-2400.webp">
-          <picture>
-            <source type="image/webp" srcset="assets/img/work/allcare-800.webp 800w, assets/img/work/allcare-1600.webp 1600w, assets/img/work/allcare-2400.webp 2400w" sizes="(max-width: 760px) 100vw, 58vw">
-            <img src="assets/img/work/allcare-1600.jpg" width="1600" height="1066" alt="AllCare home page: a woman at a laptop beside the MyBenefits app on a phone" loading="lazy">
-          </picture>
+      <article class="case" data-pen>
+        <figure class="print" data-print style="--r: -1.4deg">
+          <span class="tape"></span><span class="tape tape-r"></span>
+          <a class="print-in" href="work/allcare.html" aria-label="AllCare case study">
+            <span class="shot">
+              <picture>
+                <source type="image/webp" srcset="assets/img/work/allcare-800.webp 800w, assets/img/work/allcare-1600.webp 1600w" sizes="(max-width: 1100px) 92vw, 56vw">
+                <img src="assets/img/work/allcare-1600.jpg" width="1600" height="1066" alt="AllCare home page: a woman at a laptop beside the MyBenefits app on a phone" loading="lazy">
+              </picture>
+              <svg class="ink ink-shot" viewBox="0 0 1600 1066" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" data-ellipse="928 266.5 504 426.4 21" d="M1065.5 252.2 Q1133.2 231.1 1169.2 228.9 Q1205.2 226.6 1242.1 229.8 Q1279 233 1312 248.9 Q1345 264.7 1368.1 291 Q1391.2 317.3 1411.6 344.2 Q1432 371.1 1446.8 401.6 Q1461.6 432.2 1457 465.4 Q1452.4 498.5 1446.8 530.5 Q1441.2 562.4 1427.7 593 Q1414.2 623.6 1387.9 646.4 Q1361.7 669.2 1330.7 685 Q1299.7 700.8 1268.3 719.2 Q1236.9 737.6 1200 732.7 Q1163.2 727.8 1127.2 725.1 Q1091.2 722.3 1056.8 710.2 Q1022.4 698.1 1000.6 670.8 Q978.9 643.5 954.7 619.4 Q930.6 595.2 921.3 563.7 Q912 532.1 905.5 499.9 Q899 467.6 906.3 435.3 Q913.6 403 932.4 375.3 Q951.1 347.5 969.3 318.8 Q987.4 290.1 1016.7 269.6 Q1046 249.1 1080.5 236.4 Q1115.1 223.7 1152.2 223 L1189.4 222.2"/><path class="mark" pathLength="1" data-ellipse="1296 26.7 128 58.6 22" d="M1322.6 24.6 Q1339.5 20.8 1348.5 19.9 Q1357.6 18.9 1367.2 18.5 Q1376.9 18.2 1385.4 20.5 Q1393.9 22.8 1402 25.3 Q1410.1 27.8 1416.5 31.5 Q1422.8 35.2 1424.9 40 Q1427 44.7 1429 49.3 Q1431 53.8 1430.4 58.5 Q1429.9 63.2 1427.1 67.6 Q1424.2 72.1 1419.9 76.3 Q1415.5 80.6 1407.9 83.4 Q1400.3 86.1 1392.6 88.8 Q1384.8 91.5 1375.5 92.1 Q1366.2 92.6 1356.8 92.9 Q1347.4 93.2 1338.1 92.1 Q1328.8 90.9 1320.8 88.2 Q1312.9 85.5 1306.1 82 Q1299.3 78.5 1296.5 73.8 Q1293.7 69.1 1289.9 64.7 Q1286.1 60.3 1287 55.4 Q1287.8 50.6 1291.5 46.2 Q1295.1 41.9 1299.6 37.8 Q1304.1 33.8 1309.5 29.8 Q1314.9 25.9 1323.3 23.6 Q1331.8 21.4 1340.9 20.6 L1350.1 19.8"/></svg>
+            </span>
+            <span class="cap">allcare.ph · as I left it in 2024</span>
+          </a>
         </figure>
-        <div class="info">
-          <h3>AllCare</h3>
-          <table class="tb">
-            <tr><th scope="row">Scope</th><td>Redesign, logged-in dashboard, frontend</td></tr>
-            <tr><th scope="row">Stack</th><td>Ruby on Rails</td></tr>
-            <tr><th scope="row">Until</th><td>2024</td></tr>
-          </table>
-          <p>A benefits platform for workers. I redesigned the public pages and the whole logged-in side, then built them inside the Rails app.</p>
-          <span class="go"><span class="link">Read the case study</span> →</span>
+        <div class="case-text">
+          <h3><a href="work/allcare.html">AllCare</a></h3>
+          <p class="typed">A benefits platform for workers. I redesigned the public pages and the whole logged-in side, then built them inside the Rails app.</p>
+          <dl class="spec"><div><dt>scope</dt><dd>redesign, logged-in dashboard, frontend</dd></div><div><dt>stack</dt><dd>Ruby on Rails</dd></div><div><dt>until</dt><dd>2024</dd></div></dl>
+          <p class="hand">headline → detail → one button</p>
+          <p class="hand">secondary action, outlined</p>
+          <a class="go" href="work/allcare.html">read the case study →</a>
         </div>
-      </a>
+      </article>
 
-      <a class="case" href="work/asklex.html">
-        <figure class="shot lensable" data-zoom="assets/img/work/asklex-2400.webp">
-          <picture>
-            <source type="image/webp" srcset="assets/img/work/asklex-800.webp 800w, assets/img/work/asklex-1600.webp 1600w, assets/img/work/asklex-2400.webp 2400w" sizes="(max-width: 760px) 100vw, 58vw">
-            <img src="assets/img/work/asklex-1600.jpg" width="1600" height="1066" alt="Ask Lex PH Academy home page with a green hero, a row of figures and course categories" loading="lazy">
-          </picture>
+      <article class="case case--flip" data-pen>
+        <figure class="print" data-print style="--r: 1.6deg">
+          <span class="tape"></span><span class="tape tape-r"></span>
+          <a class="print-in" href="work/asklex.html" aria-label="Ask Lex PH Academy case study">
+            <span class="shot">
+              <picture>
+                <source type="image/webp" srcset="assets/img/work/asklex-800.webp 800w, assets/img/work/asklex-1600.webp 1600w" sizes="(max-width: 1100px) 92vw, 56vw">
+                <img src="assets/img/work/asklex-1600.jpg" width="1600" height="1066" alt="Ask Lex PH Academy home page with a green hero, a row of figures and course categories" loading="lazy">
+              </picture>
+              <svg class="ink ink-shot" viewBox="0 0 1600 1066" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" data-ellipse="1328 16 136 51.2 31" d="M1352.5 13.3 Q1372.7 11.2 1382.3 9.9 Q1391.9 8.7 1402 9.1 Q1412 9.5 1421.1 11.3 Q1430.2 13 1440.2 14.6 Q1450.1 16.1 1456.6 19.7 Q1463.1 23.2 1467.1 27.3 Q1471.1 31.4 1471.9 35.8 Q1472.6 40.1 1473 44.5 Q1473.4 48.9 1469.4 53 Q1465.4 57.1 1459.1 60.5 Q1452.9 64 1445.6 67.1 Q1438.3 70.2 1428.2 71.2 Q1418.2 72.2 1408.5 73.8 Q1398.9 75.4 1388.5 75 Q1378.2 74.6 1368.3 73.2 Q1358.4 71.7 1351.1 68.6 Q1343.7 65.4 1335.8 62.5 Q1327.9 59.6 1323.7 55.5 Q1319.5 51.4 1318 47 Q1316.5 42.6 1317.5 38.1 Q1318.5 33.7 1321.8 29.4 Q1325.1 25.2 1332 21.8 Q1339 18.4 1347 15.7 Q1355.1 12.9 1365.1 11.9 Q1375 10.9 1384.7 10.1 L1394.4 9.3"/><path class="mark" pathLength="1" data-ellipse="80 597 1440 165.2 32" d="M496 588.9 Q687.6 577.2 793.5 578.3 Q899.5 579.4 999.5 583.2 Q1099.6 586.9 1181 594.8 Q1262.5 602.8 1347.4 610.3 Q1432.3 617.9 1491.3 629 Q1550.3 640.1 1580.6 653 Q1611 666 1592.9 679.2 Q1574.8 692.5 1543 704.7 Q1511.2 716.9 1463.3 728.2 Q1415.4 739.5 1352.8 750.1 Q1290.2 760.8 1196.2 766.7 Q1102.1 772.7 1000.4 775.2 Q898.6 777.7 796.3 777.4 Q694 777.2 595.3 773.9 Q496.6 770.5 400.9 765.2 Q305.3 759.8 233 750.2 Q160.7 740.5 115.4 728.7 Q70.1 716.8 40 704.3 Q9.8 691.7 21.4 678.7 Q33 665.7 39.3 652.2 Q45.6 638.7 101.5 627.2 Q157.3 615.6 246 608.1 Q334.7 600.7 423.6 594.3 Q512.5 588 610.8 584 Q709.1 580 815.4 578.2 L921.7 576.4"/></svg>
+            </span>
+            <span class="cap">asklexph.com · as I left it in 2024</span>
+          </a>
         </figure>
-        <div class="info">
-          <h3>Ask Lex PH Academy</h3>
-          <table class="tb">
-            <tr><th scope="row">Scope</th><td>Platform UI/UX, frontend support</td></tr>
-            <tr><th scope="row">Stack</th><td>Ruby on Rails</td></tr>
-            <tr><th scope="row">Until</th><td>2024</td></tr>
-          </table>
-          <p>A learning platform with courses, mentors and events. I led the interface design and helped build it.</p>
-          <span class="go"><span class="link">Read the case study</span> →</span>
+        <div class="case-text">
+          <h3><a href="work/asklex.html">Ask Lex PH Academy</a></h3>
+          <p class="typed">A learning platform with courses, mentors and events. I led the interface design and helped build it.</p>
+          <dl class="spec"><div><dt>scope</dt><dd>platform UI/UX, frontend support</dd></div><div><dt>stack</dt><dd>Ruby on Rails</dd></div><div><dt>until</dt><dd>2024</dd></div></dl>
+          <p class="hand">the only filled button</p>
+          <p class="hand">proof row: figure, label, context</p>
+          <a class="go" href="work/asklex.html">read the case study →</a>
         </div>
-      </a>
+      </article>
 
-      <a class="case" href="work/marygrace.html">
-        <figure class="shot lensable" data-zoom="assets/img/work/marygrace-2400.webp">
-          <picture>
-            <source type="image/webp" srcset="assets/img/work/marygrace-800.webp 800w, assets/img/work/marygrace-1600.webp 1600w, assets/img/work/marygrace-2400.webp 2400w" sizes="(max-width: 760px) 100vw, 58vw">
-            <img src="assets/img/work/marygrace-1600.jpg" width="1600" height="1066" alt="Mary Grace Café home page: the lit shopfront at night with a script welcome" loading="lazy">
-          </picture>
+      <article class="case" data-pen>
+        <figure class="print" data-print style="--r: -1deg">
+          <span class="tape"></span><span class="tape tape-r"></span>
+          <a class="print-in" href="work/marygrace.html" aria-label="Mary Grace Café case study">
+            <span class="shot">
+              <picture>
+                <source type="image/webp" srcset="assets/img/work/marygrace-800.webp 800w, assets/img/work/marygrace-1600.webp 1600w" sizes="(max-width: 1100px) 92vw, 56vw">
+                <img src="assets/img/work/marygrace-1600.jpg" width="1600" height="1066" alt="Mary Grace Café home page: the lit shopfront at night with a script welcome" loading="lazy">
+              </picture>
+              <svg class="ink ink-shot" viewBox="0 0 1600 1066" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" data-ellipse="756.8 57.6 86.4 100.2 41" d="M767.4 59.3 Q778.8 51.1 785 47.9 Q791.1 44.8 797.8 45.3 Q804.5 45.9 811.1 46.6 Q817.8 47.4 823.3 52.2 Q828.7 57 833 63 Q837.2 69 841.8 74.8 Q846.4 80.7 848.7 88.4 Q851 96.1 850.3 104.3 Q849.7 112.4 848.4 120.2 Q847.1 128 845.2 136 Q843.3 143.9 838 149.1 Q832.8 154.3 827.2 158.3 Q821.6 162.3 815.6 164.9 Q809.5 167.5 803 169.1 Q796.6 170.7 790 169.4 Q783.4 168 777.9 163.3 Q772.4 158.6 767.7 153.4 Q762.9 148.1 758.8 141.8 Q754.7 135.6 753.2 127.8 Q751.6 120 750.8 112.1 Q750 104.2 751.7 96.6 Q753.3 88.9 755.5 81.4 Q757.7 73.9 762.2 68.1 Q766.7 62.3 772.2 58.4 Q777.8 54.5 783.4 49.9 L788.9 45.3"/><path class="mark" pathLength="1" data-ellipse="1254.4 75.7 169.6 62.9 42" d="M1288.7 71.7 Q1312.7 68 1325.2 68.1 Q1337.7 68.1 1350.1 68.1 Q1362.5 68.1 1373.6 70.4 Q1384.8 72.6 1395.6 75.2 Q1406.4 77.9 1415 81.7 Q1423.7 85.6 1427.5 90.7 Q1431.3 95.7 1432.4 100.8 Q1433.5 106 1434.7 111.3 Q1435.8 116.5 1430.9 121.5 Q1425.9 126.4 1417.3 130.2 Q1408.7 134 1399 137.1 Q1389.4 140.2 1378.7 142.8 Q1368 145.4 1355.8 146.6 Q1343.5 147.8 1331 147.3 Q1318.5 146.7 1307.7 144 Q1297 141.4 1285.9 139.1 Q1274.9 136.9 1265.6 133.2 Q1256.3 129.6 1253.7 124.4 Q1251 119.2 1246.7 114.4 Q1242.4 109.5 1245.4 104.5 Q1248.4 99.4 1251.5 94.6 Q1254.6 89.7 1261.9 85.6 Q1269.3 81.6 1278.1 78.2 Q1286.9 74.7 1297 71.5 Q1307.1 68.4 1319.6 67.7 L1332.2 67"/></svg>
+            </span>
+            <span class="cap">marygracecafe.com · as I left it in 2024</span>
+          </a>
         </figure>
-        <div class="info">
-          <h3>Mary Grace Café</h3>
-          <table class="tb">
-            <tr><th scope="row">Scope</th><td>Frontend build, responsive</td></tr>
-            <tr><th scope="row">Stack</th><td>Ruby on Rails</td></tr>
-            <tr><th scope="row">Until</th><td>2024</td></tr>
-          </table>
-          <p>A well-loved Filipino café brand. I built the frontend from the design and kept its warmth on every screen size.</p>
-          <span class="go"><span class="link">Read the case study</span> →</span>
+        <div class="case-text">
+          <h3><a href="work/marygrace.html">Mary Grace Café</a></h3>
+          <p class="typed">A well-loved Filipino café brand. I built the frontend from the design and kept its warmth on every screen size.</p>
+          <dl class="spec"><div><dt>scope</dt><dd>frontend build, responsive</dd></div><div><dt>stack</dt><dd>Ruby on Rails</dd></div><div><dt>until</dt><dd>2024</dd></div></dl>
+          <p class="hand">logo centred, nav split around it</p>
+          <p class="hand">one button: Order Online</p>
+          <a class="go" href="work/marygrace.html">read the case study →</a>
         </div>
-      </a>
+      </article>
     </div>
   </section>
 
-  <section id="shipped" aria-labelledby="shipped-h">
+  <section class="shipped" id="shipped" aria-labelledby="shipped-h">
     <div class="wrap">
-      <h2 class="parts-h" id="shipped-h">More sites I built</h2>
-      <table class="parts">
-        <thead><tr><th scope="col">Client</th><th scope="col">What I did</th><th scope="col">Stack</th><th scope="col"><span class="sr">Link</span></th></tr></thead>
-        <tbody>
-          <tr data-img="assets/img/work/goldentopper-800.webp"><td><span class="client">Golden Topper</span></td><td><span class="did">Frontend development</span></td><td><span class="stack">Ruby on Rails</span></td><td class="visit"><a href="https://www.goldentopper.com/" target="_blank" rel="noopener">Visit ↗<span class="sr"> Golden Topper (opens in a new tab)</span></a></td></tr>
-          <tr data-img="assets/img/work/mdlr-800.webp"><td><span class="client">Mayet de la Rosa</span></td><td><span class="did">UI/UX design and frontend</span></td><td><span class="stack">Ruby on Rails</span></td><td class="visit"><a href="https://mayetdelarosa.com/" target="_blank" rel="noopener">Visit ↗<span class="sr"> Mayet de la Rosa (opens in a new tab)</span></a></td></tr>
-          <tr data-img="assets/img/work/emmaus-800.webp"><td><span class="client">Emmaus PH</span></td><td><span class="did">Frontend development</span></td><td><span class="stack">Ruby on Rails</span></td><td class="visit"><a href="https://www.emmausph.org/" target="_blank" rel="noopener">Visit ↗<span class="sr"> Emmaus PH (opens in a new tab)</span></a></td></tr>
-          <tr data-img="assets/img/work/ignite-800.webp"><td><span class="client">Ignite 2023</span></td><td><span class="did">Frontend development</span></td><td><span class="stack">Ruby on Rails</span></td><td class="visit"><a href="https://2023.ignite.ph/" target="_blank" rel="noopener">Visit ↗<span class="sr"> Ignite 2023 (opens in a new tab)</span></a></td></tr>
-          <tr data-img="assets/img/work/stepforward-800.webp"><td><span class="client">StepForward Learning</span></td><td><span class="did">Frontend, CMS integration</span></td><td><span class="stack">WordPress</span></td><td class="visit"><a href="https://stepforward-learning.com/" target="_blank" rel="noopener">Visit ↗<span class="sr"> StepForward Learning (opens in a new tab)</span></a></td></tr>
-          <tr data-img="assets/img/work/janlink-800.webp"><td><span class="client">Janlink</span></td><td><span class="did">Frontend, CMS integration</span></td><td><span class="stack">WordPress</span></td><td class="visit"><a href="https://www.janlink.ca/" target="_blank" rel="noopener">Visit ↗<span class="sr"> Janlink (opens in a new tab)</span></a></td></tr>
-          <tr data-img="assets/img/work/risktaker-800.webp"><td><span class="client">Risktaker</span></td><td><span class="did">Frontend, CMS integration</span></td><td><span class="stack">WordPress</span></td><td class="visit"><a href="https://risktaker.world/" target="_blank" rel="noopener">Visit ↗<span class="sr"> Risktaker (opens in a new tab)</span></a></td></tr>
-          <tr data-img="assets/img/work/souzoku-800.webp"><td><span class="client">Misaki Souzoku Niigata</span></td><td><span class="did">Frontend, CMS integration</span></td><td><span class="stack">WordPress</span></td><td class="visit"><a href="https://www.souzoku-niigata.net/" target="_blank" rel="noopener">Visit ↗<span class="sr"> Misaki Souzoku Niigata (opens in a new tab)</span></a></td></tr>
-        </tbody>
-      </table>
-      <div class="peek" aria-hidden="true"><img src="assets/img/work/goldentopper-800.webp" alt="" width="240" height="240" loading="lazy"></div>
+      <div class="card" data-pen>
+        <svg class="ink card-line" viewBox="0 0 1000 6" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M0 3 C 260 1.5, 640 4.5, 1000 2.5"/></svg>
+        <h2 class="card-h" id="shipped-h">More sites I built</h2>
+        <table>
+          <thead><tr><th scope="col">site</th><th scope="col">what I did</th><th scope="col">stack</th><th scope="col"><span class="sr">link</span></th></tr></thead>
+          <tbody>
+            <tr data-img="assets/img/work/goldentopper-800.webp"><td><img class="thumb" src="assets/img/work/goldentopper-800.webp" alt="" width="76" height="76" loading="lazy"><span class="client">Golden Topper</span></td><td>frontend development</td><td>Ruby on Rails</td><td><a href="https://www.goldentopper.com/" target="_blank" rel="noopener">visit ↗<span class="sr"> Golden Topper (opens in a new tab)</span></a></td></tr>
+            <tr data-img="assets/img/work/mdlr-800.webp"><td><img class="thumb" src="assets/img/work/mdlr-800.webp" alt="" width="76" height="76" loading="lazy"><span class="client">Mayet de la Rosa</span></td><td>UI/UX design and frontend</td><td>Ruby on Rails</td><td><a href="https://mayetdelarosa.com/" target="_blank" rel="noopener">visit ↗<span class="sr"> Mayet de la Rosa (opens in a new tab)</span></a></td></tr>
+            <tr data-img="assets/img/work/emmaus-800.webp"><td><img class="thumb" src="assets/img/work/emmaus-800.webp" alt="" width="76" height="76" loading="lazy"><span class="client">Emmaus PH</span></td><td>frontend development</td><td>Ruby on Rails</td><td><a href="https://www.emmausph.org/" target="_blank" rel="noopener">visit ↗<span class="sr"> Emmaus PH (opens in a new tab)</span></a></td></tr>
+            <tr data-img="assets/img/work/ignite-800.webp"><td><img class="thumb" src="assets/img/work/ignite-800.webp" alt="" width="76" height="76" loading="lazy"><span class="client">Ignite 2023</span></td><td>frontend development</td><td>Ruby on Rails</td><td><a href="https://2023.ignite.ph/" target="_blank" rel="noopener">visit ↗<span class="sr"> Ignite 2023 (opens in a new tab)</span></a></td></tr>
+            <tr data-img="assets/img/work/stepforward-800.webp"><td><img class="thumb" src="assets/img/work/stepforward-800.webp" alt="" width="76" height="76" loading="lazy"><span class="client">StepForward Learning</span></td><td>frontend, CMS integration</td><td>WordPress</td><td><a href="https://stepforward-learning.com/" target="_blank" rel="noopener">visit ↗<span class="sr"> StepForward Learning (opens in a new tab)</span></a></td></tr>
+            <tr data-img="assets/img/work/janlink-800.webp"><td><img class="thumb" src="assets/img/work/janlink-800.webp" alt="" width="76" height="76" loading="lazy"><span class="client">Janlink</span></td><td>frontend, CMS integration</td><td>WordPress</td><td><a href="https://www.janlink.ca/" target="_blank" rel="noopener">visit ↗<span class="sr"> Janlink (opens in a new tab)</span></a></td></tr>
+            <tr data-img="assets/img/work/risktaker-800.webp"><td><img class="thumb" src="assets/img/work/risktaker-800.webp" alt="" width="76" height="76" loading="lazy"><span class="client">Risktaker</span></td><td>frontend, CMS integration</td><td>WordPress</td><td><a href="https://risktaker.world/" target="_blank" rel="noopener">visit ↗<span class="sr"> Risktaker (opens in a new tab)</span></a></td></tr>
+            <tr data-img="assets/img/work/souzoku-800.webp"><td><img class="thumb" src="assets/img/work/souzoku-800.webp" alt="" width="76" height="76" loading="lazy"><span class="client">Misaki Souzoku Niigata</span></td><td>frontend, CMS integration</td><td>WordPress</td><td><a href="https://www.souzoku-niigata.net/" target="_blank" rel="noopener">visit ↗<span class="sr"> Misaki Souzoku Niigata (opens in a new tab)</span></a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="polaroid" aria-hidden="true"><img alt="" width="210" height="140"></div>
     </div>
   </section>
 
   <section class="about" id="about" aria-labelledby="about-h">
     <div class="wrap">
-      <h2 class="about-h" id="about-h">Designer and developer since 2014.</h2>
-      <div class="ruler" data-draw role="group" aria-label="Career timeline, 2014 to now">
-        <div class="scale" aria-hidden="true"><span>2014</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span></div>
-        <ol class="bars">
-          <li class="bar" style="--s:1;--e:25;--r:1"><b>Core Enabler</b><small>UI/UX developer + graphic artist</small><small>2014–2016</small></li>
-          <li class="bar" style="--s:25;--e:47;--r:2"><b>Incubix Technology</b><small>Junior frontend developer</small><small>2016–2017</small></li>
-          <li class="bar" style="--s:47;--e:100;--r:1"><b>GSS Labs</b><small>Lead frontend developer</small><small>Nov 2017 – Mar 2022</small></li>
-          <li class="bar" style="--s:100;--e:115;--r:2"><b>Digiteer</b><small>Lead UI/UX designer + frontend</small><small>Apr 2022 – Jul 2023</small></li>
-          <li class="bar" style="--s:115;--e:132;--r:1"><b>Digiteer</b><small>Mid frontend developer</small><small>Jul 2023 – Nov 2024</small></li>
-          <li class="bar now" style="--s:132;--e:-1;--r:2"><b>Independent</b><small>AI content creator, TikTok</small><small>1 year · open to work now</small></li>
-        </ol>
-      </div>
+      <h2 class="sec-h" id="about-h">Designer and developer since 2014.</h2>
       <div class="about-grid">
         <div class="about-text">
           <p>I started in 2014 making banners and fixing layouts, and I have worked on the web ever since. Across four companies I've been the designer, the frontend developer, and often both on the same project.</p>
           <p>At GSS Labs I led frontend for more than four years, building WordPress sites and keeping them stable. At Digiteer I led UI/UX and frontend from design to deployment and guided junior designers, then moved to frontend work across many client sites.</p>
           <p>After Digiteer I spent a year on TikTok as a content creator, making short videos with AI tools and reading the numbers on every one. It taught me how fast people decide to stay or scroll, which is the same question every landing page has to answer.</p>
+          <p class="tools"><b>tools I use:</b> Figma, Photoshop, HTML, CSS, Ruby on Rails views, WordPress, Webflow, PHP / Laravel, SEO basics, ChatGPT, Claude, Gemini and CapCut.</p>
         </div>
-        <p class="tools"><b>Tools I use:</b> Figma, Photoshop, HTML, CSS, Ruby on Rails views, WordPress, Webflow, PHP / Laravel, SEO basics, ChatGPT, Claude, Gemini and CapCut.</p>
+        <figure class="timeline" data-pen aria-label="Career timeline, 2014 to now">
+          <svg class="ink tl-svg" viewBox="0 0 100 600" preserveAspectRatio="none" aria-hidden="true">
+            <path class="mark" pathLength="1" d="M50 0 V600"/>
+            <path class="mark" pathLength="1" d="M40 1 H60 M40 92.3 H60 M40 184.6 H60 M40 276.9 H60 M40 369.2 H60 M40 461.5 H60 M40 553.8 H60"/>
+            <path class="mark job" pathLength="1" d="M74 2 V90"/>
+            <path class="mark job" pathLength="1" d="M74 95 V175"/>
+            <path class="mark job" pathLength="1" d="M74 180 V379"/>
+            <path class="mark job" pathLength="1" d="M74 384 V498"/>
+            <path class="mark" pathLength="1" d="M64 438.5 H84"/>
+            <path class="mark job now" pathLength="1" d="M74 503 V596"/>
+          </svg>
+          <ul class="tl-years" aria-hidden="true"><li style="--y: 0%">2014</li><li style="--y: 15.4%">2016</li><li style="--y: 30.8%">2018</li><li style="--y: 46.2%">2020</li><li style="--y: 61.5%">2022</li><li style="--y: 76.9%">2024</li><li style="--y: 92.3%">2026</li></ul>
+          <ol class="tl-jobs">
+            <li style="--y: 0%"><span class="hand">Core Enabler</span><span class="typed">UI/UX developer + graphic artist<br>2014–2016</span></li>
+            <li style="--y: 15.4%"><span class="hand">Incubix Technology</span><span class="typed">junior frontend developer<br>2016–2017</span></li>
+            <li style="--y: 29.5%"><span class="hand">GSS Labs</span><span class="typed">lead frontend developer<br>Nov 2017 – Mar 2022</span></li>
+            <li style="--y: 63.5%"><span class="hand">Digiteer</span><span class="typed">lead UI/UX designer + frontend, Apr 2022 – Jul 2023<br>mid frontend developer, Jul 2023 – Nov 2024</span></li>
+            <li class="now" style="--y: 84%"><span class="hand">Independent</span><span class="typed">AI content creator, TikTok · 1 year<br>open to work now</span></li>
+          </ol>
+        </figure>
       </div>
     </div>
   </section>
 
   <section class="contact" id="contact" aria-labelledby="contact-h">
     <div class="wrap">
-      <h2 class="contact-h" id="contact-h">Hiring for UI/UX or frontend?</h2>
-      <div class="contact-card">
-      <p class="contact-sub">Available now for full-time, contract or project work.</p>
-      <div class="contact-actions">
-        <a class="contact-btn contact-btn--xl" href="mailto:designdadstudio@gmail.com?subject=Full-time%20role%3A%20UI%2FUX%20%2B%20frontend">Work with me <span aria-hidden="true">→</span></a>
-        <a class="resume-btn resume-btn--xl" href="assets/resume.pdf" download="Christian-Marquez-Resume.pdf"><span class="rb-label">Download résumé</span><span class="rb-ic" aria-hidden="true">↓</span></a>
-      </div>
-      <dl class="contact-rows">
-        <div><dt>Email</dt><dd><a class="link" href="mailto:designdadstudio@gmail.com">designdadstudio@gmail.com</a></dd></div>
-        <div><dt>LinkedIn</dt><dd><a class="link" href="https://www.linkedin.com/in/cmarquezworks/" target="_blank" rel="noopener">linkedin.com/in/cmarquezworks ↗</a></dd></div>
-        <div><dt>Based in</dt><dd><p style="margin:0;min-height:44px;display:flex;align-items:center">Santa Rosa, Laguna · GMT+8</p></dd></div>
-      </dl>
+      <div class="pad" data-pen data-notepad>
+        <svg class="ink pad-margin" viewBox="0 0 8 1000" preserveAspectRatio="none" aria-hidden="true"><path class="mark" pathLength="1" d="M2 0 V1000 M6 0 V1000"/></svg>
+        <h2 class="sec-h" id="contact-h">Hiring for UI/UX or frontend?</h2>
+        <p class="hand pad-avail">available now!</p>
+        <p class="pad-q" id="kind-q">what kind of work? circle one:</p>
+        <div class="kinds" role="radiogroup" aria-labelledby="kind-q">
+          <button type="button" class="kind" role="radio" aria-checked="true">full-time<svg class="ring" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" data-ellipse="4 5 92 30 51" d="M36.9 0.1 Q50.3 0 57 0.2 Q63.6 0.4 69.9 1.4 Q76.1 2.3 81.7 3.8 Q87.4 5.2 91.3 7.4 Q95.3 9.5 99.2 11.7 Q103.2 14 104.4 16.7 Q105.6 19.4 103.5 22 Q101.5 24.6 100.4 27.3 Q99.3 30 94.7 32 Q90.2 34.1 84.2 35.4 Q78.3 36.8 72.3 37.9 Q66.4 39 59.9 39.6 Q53.4 40.2 46.5 40.5 Q39.6 40.9 33.2 39.8 Q26.9 38.6 21.7 37 Q16.5 35.3 10.7 33.8 Q4.9 32.3 2.1 29.8 Q-0.7 27.3 -2.9 24.7 Q-5.1 22.2 -3.8 19.5 Q-2.5 16.8 -0.1 14.4 Q2.2 12 4.8 9.5 Q7.5 7.1 12.5 5.3 Q17.5 3.4 23.5 2.2 Q29.6 1 36 0 Q42.5 -1 49.3 -0.5 L56.2 0"/></svg></button>
+          <button type="button" class="kind" role="radio" aria-checked="false" tabindex="-1">contract<svg class="ring" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" data-ellipse="4 5 92 30 52" d="M34.7 0.3 Q48 -1.2 54.8 -0.8 Q61.7 -0.3 68.1 0.6 Q74.5 1.6 79.5 3.3 Q84.5 5.1 89.2 6.9 Q93.9 8.7 97.9 10.9 Q101.9 13.1 103 15.8 Q104.1 18.4 104.4 21.1 Q104.7 23.8 101.9 26.3 Q99.1 28.8 95.7 31.1 Q92.3 33.5 86.7 35 Q81 36.6 74.9 37.5 Q68.7 38.5 62.5 39.8 Q56.3 41 49.6 40.4 Q42.9 39.7 36.1 39.5 Q29.3 39.2 23.9 37.6 Q18.4 36.1 13.3 34.4 Q8.1 32.7 3.6 30.6 Q-1 28.6 -2.3 25.9 Q-3.6 23.3 -2.8 20.6 Q-2 18 -0.1 15.5 Q1.7 13.1 3.1 10.4 Q4.6 7.8 9.6 5.8 Q14.5 3.9 20.2 2.4 Q25.9 0.8 32.6 0 Q39.4 -0.7 46.2 -0.5 L53.1 -0.3"/></svg></button>
+          <button type="button" class="kind" role="radio" aria-checked="false" tabindex="-1">project<svg class="ring" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" data-ellipse="4 5 92 30 53" d="M39.9 0.4 Q53.6 -1.4 60.2 -0.2 Q66.7 1.1 73.3 1.9 Q80 2.8 84.5 4.8 Q89.1 6.9 94.1 8.8 Q99.2 10.7 101 13.4 Q102.8 16.1 104.1 18.8 Q105.4 21.6 103.3 24.2 Q101.2 26.9 98.5 29.5 Q95.8 32.1 90.7 34 Q85.5 36 79.6 37.6 Q73.7 39.2 66.9 40.2 Q60.1 41.1 52.9 41 Q45.7 40.8 39.1 39.9 Q32.5 38.9 25.6 38.2 Q18.7 37.5 14.5 35.2 Q10.4 32.9 5.9 30.9 Q1.4 28.8 -0.7 26.2 Q-2.8 23.6 -4 20.9 Q-5.3 18.1 -3.4 15.4 Q-1.5 12.7 1.8 10.3 Q5.1 7.8 10.8 6.1 Q16.5 4.4 21.9 2.7 Q27.3 0.9 34.2 0.3 Q41.1 -0.3 48 -0.2 Q54.9 0 61.5 0.6 L68.1 1.3"/></svg></button>
+        </div>
+        <p class="hand pad-subject" data-subject aria-live="polite">subject: Full-time role: UI/UX + frontend</p>
+        <ul class="pad-links">
+          <li><a href="mailto:designdadstudio@gmail.com?subject=Full-time%20role%3A%20UI%2FUX%20%2B%20frontend&amp;body=Hi%20Christian%2C%0A%0AWe%20have%20a%20full-time%20role%20and%20would%20like%20to%20talk.%0A%0ARole%3A%0ATeam%3A%0ALink%3A%0A" data-mail>email me</a></li>
+          <li><button type="button" class="linkish" data-copy-email>copy email</button><span class="addr">designdadstudio@gmail.com</span></li>
+          <li><a href="assets/resume.pdf" download="Christian-Marquez-Resume.pdf" data-resume>résumé.pdf</a> <span class="addr">(3 pages)</span></li>
+          <li><a href="https://www.linkedin.com/in/cmarquezworks/" target="_blank" rel="noopener">linkedin</a></li>
+        </ul>
+        <p class="pad-where">Santa Rosa, Laguna · GMT+8</p>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="site-foot">
+<footer class="foot">
   <div class="wrap">
     <span>© 2026 Christian Marquez</span>
-    <span>HTML, CSS, JS and WebGL. No frameworks, no template.</span>
-    <span>This page: <span data-weight>measuring…</span></span>
-    <a class="link" href="https://github.com/csmarquez939/csmarquez939.github.io" target="_blank" rel="noopener">View the source ↗</a>
+    <span>HTML, CSS, JS. No frameworks, no template.</span>
+    <span>this page: <span data-weight>measuring…</span></span>
+    <a href="https://github.com/csmarquez939/csmarquez939.github.io" target="_blank" rel="noopener">view the source ↗</a>
   </div>
 </footer>
 </body>
