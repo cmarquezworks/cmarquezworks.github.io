@@ -255,6 +255,7 @@ export function initContact(root = document) {
     });
     const t1 = 520 + chars.length * 14 - 120;
     setTimeout(() => {
+      copyB.classList.add('is-filling');
       copyLq.animate([{ transform: 'translateY(112%)' }, { transform: 'translateY(0%)' }], { duration: 520, easing: EASE_OUT, fill: 'forwards' });
       copyLabel.animate([{ opacity: 0, filter: 'blur(4px)', transform: 'scale(.9)' }, { opacity: 1, filter: 'blur(0)', transform: 'none' }], { duration: 260, easing: EASE_OUT });
       copyLabel.textContent = label;
@@ -271,6 +272,7 @@ export function initContact(root = document) {
       copyLq.animate([{ transform: 'translateY(0%)' }, { transform: 'translateY(112%)' }], { duration: 400, easing: EASE_IN, fill: 'forwards' });
       copyLabel.textContent = 'Copy email';
       copyBusy = false;
+      setTimeout(() => copyB.classList.remove('is-filling'), 420);
     }, t1 + 2200);
   });
 }
