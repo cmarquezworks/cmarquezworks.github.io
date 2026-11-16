@@ -2,7 +2,7 @@
 // on the page follows the choice. Each link is a real mailto: link, so it all works with JS off.
 import { note, announce, rewrite } from './notes.js';
 
-export const EMAIL = 'designdadstudio@gmail.com';
+export const EMAIL = 'cmarquezworks@gmail.com';
 export const MODES = [
   { label: 'full-time', subject: 'Full-time role: UI/UX + frontend',
     body: 'Hi Christian,\n\nWe have a full-time role and would like to talk.\n\nRole:\nTeam:\nLink:\n' },

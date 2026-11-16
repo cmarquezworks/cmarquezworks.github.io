@@ -25,10 +25,10 @@ test('motion: clamp, mix and colours', () => {
 });
 
 test('contact: pre-filled emails per kind of work', () => {
-  assert.equal(EMAIL, 'designdadstudio@gmail.com');
+  assert.equal(EMAIL, 'cmarquezworks@gmail.com');
   assert.deepEqual(MODES.map((m) => m.label), ['full-time', 'contract', 'project']);
   const m = mailtoFor(0);
-  assert.ok(m.startsWith('mailto:designdadstudio@gmail.com?subject=Full-time%20role%3A%20UI%2FUX%20%2B%20frontend&body='), m);
+  assert.ok(m.startsWith('mailto:cmarquezworks@gmail.com?subject=Full-time%20role%3A%20UI%2FUX%20%2B%20frontend&body='), m);
   assert.ok(m.includes('%0A'), 'newlines are encoded');
   assert.ok(mailtoFor(1).includes('subject=Contract%20work'), 'contract has its own subject');
   assert.equal(mailtoFor(7), mailtoFor(0));
