@@ -33,6 +33,16 @@ export function contrast(a, b) {
   return Math.round(((hi + 0.05) / (lo + 0.05)) * 10) / 10;
 }
 
+export function rgbToHex(value) {
+  const m = String(value).match(/rgba?\(([^)]+)\)/);
+  if (!m) return null;
+  const [r, g, b, a = 1] = m[1].split(',').map((s) => parseFloat(s));
+  if (a === 0) return null;
+  return '#' + [r, g, b].map((n) => Math.round(n).toString(16).padStart(2, '0')).join('').toUpperCase();
+}
+
+export const fmtContrast = (fg, bg) => `${fg} on ${bg} · ${contrast(fg, bg)}:1`;
+
 export function readPref(storage) {
   try {
     const v = storage && storage.getItem(PREF_KEY);
@@ -66,6 +76,12 @@ function labelFor(node) {
   if (kind === 'type') text = fmtType(getComputedStyle(node));
   else if (kind === 'box') text = fmtBox(r.width, r.height);
   else if (kind === 'inset') text = String(Math.round(r.left));
+  else if (kind === 'contrast') {
+    const fg = rgbToHex(getComputedStyle(node).color);
+    let bg = null;
+    for (let n = node; n && !bg; n = n.parentElement) bg = rgbToHex(getComputedStyle(n).backgroundColor);
+    if (fg) text = fmtContrast(fg, bg || '#FFFFFF');
+  }
   const note = node.dataset.specNote;
   return note ? (text ? `${text} · ${note}` : note) : text;
 }
@@ -158,12 +174,17 @@ export function mountRedlines(root = document.body, { animate = false } = {}) {
   const ro = new ResizeObserver(schedule);
   ro.observe(document.body);
   window.addEventListener('load', schedule);
+  // Entrance animations move elements; measure again once each one settles.
+  const settle = (e) => { if (!layer.contains(e.target)) schedule(); };
+  document.addEventListener('animationend', settle, true);
+  // The draw-in plays once; later redraws appear without replaying it.
+  if (layer.classList.contains('rl-animate')) setTimeout(() => layer.classList.remove('rl-animate'), 1800);
   if (document.fonts) document.fonts.ready.then(schedule);
   draw();
 
   return {
     refresh: schedule,
     setOn(on) { layer.hidden = !on; },
-    destroy() { ro.disconnect(); layer.remove(); },
+    destroy() { ro.disconnect(); document.removeEventListener('animationend', settle, true); layer.remove(); },
   };
 }

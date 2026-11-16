@@ -1,6 +1,17 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { fmtType, fmtGap, fmtBox, contrast, readPref, writePref } from '../assets/js/redline.js';
+import { fmtType, fmtGap, fmtBox, contrast, readPref, writePref, rgbToHex, fmtContrast } from '../assets/js/redline.js';
+
+test('rgbToHex: computed colours to hex, transparent to null', () => {
+  assert.equal(rgbToHex('rgb(20, 20, 20)'), '#141414');
+  assert.equal(rgbToHex('rgba(243, 240, 232, 1)'), '#F3F0E8');
+  assert.equal(rgbToHex('rgba(0, 0, 0, 0)'), null);
+  assert.equal(rgbToHex('transparent'), null);
+});
+
+test('fmtContrast: fg on bg with the WCAG ratio', () => {
+  assert.equal(fmtContrast('#F3F0E8', '#141414'), '#F3F0E8 on #141414 · 16.2:1');
+});
 
 test('fmtType: display face with tight leading and negative tracking', () => {
   assert.equal(
