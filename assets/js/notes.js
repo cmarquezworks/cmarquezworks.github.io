@@ -73,7 +73,9 @@ export function initPolaroid(root = document) {
   const pol = root.querySelector('.polaroid');
   const table = root.querySelector('.shipped table');
   if (!pol || !table || !finePointer()) return;
-  const img = pol.querySelector('img');
+  // The photo is created on the first hover, so no empty <img> ships and nothing loads until then.
+  let img = pol.querySelector('img');
+  const photo = () => img || (img = pol.appendChild(Object.assign(document.createElement('img'), { alt: '', width: 210, height: 140 })));
   let x = 0;
   let y = 0;
   let raf = 0;
@@ -85,7 +87,7 @@ export function initPolaroid(root = document) {
     table.querySelectorAll('tr[data-img]').forEach((row) => { new Image().src = row.dataset.img; });
   }, { once: true });
   table.querySelectorAll('tr[data-img]').forEach((row) => {
-    row.addEventListener('pointerenter', () => { img.src = row.dataset.img; pol.classList.add('on'); });
+    row.addEventListener('pointerenter', () => { photo().src = row.dataset.img; pol.classList.add('on'); });
     row.addEventListener('pointerleave', () => pol.classList.remove('on'));
     row.addEventListener('pointermove', (e) => {
       x = e.clientX;
