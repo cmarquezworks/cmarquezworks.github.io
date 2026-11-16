@@ -17,7 +17,7 @@ createServer(async (req, res) => {
     if (!file.startsWith(root)) throw new Error('outside root');
     if ((await stat(file).catch(() => null))?.isDirectory()) file = join(file, 'index.html');
     const body = await readFile(file);
-    res.writeHead(200, { 'content-type': types[extname(file)] || 'application/octet-stream' });
+    res.writeHead(200, { 'content-type': types[extname(file)] || 'application/octet-stream', 'cache-control': 'no-store' });
     res.end(body);
   } catch {
     const body = await readFile(join(root, '404.html')).catch(() => 'Not found');

@@ -198,6 +198,7 @@ section { padding-block: clamp(72px, 11vw, 140px); border-top: 1px solid var(--r
 .callout.below span { bottom: auto; top: calc(100% + 4px); }
 .callout.right span { left: auto; right: -1.5px; }
 body.inspect-off .callout { opacity: 0; }
+.legend { display: none; }
 .cs-body .grid { row-gap: 40px; }
 .cs-body .label { grid-column: 1 / span 3; font: 400 12px var(--mono); color: var(--graphite); text-transform: uppercase; letter-spacing: .06em; padding-top: 10px; }
 .cs-body .text { grid-column: 4 / span 6; font-size: 18px; }
@@ -282,7 +283,11 @@ body.inspect-off .callout { opacity: 0; }
   .parts .no { width: auto; }
   .contact .rows { grid-template-columns: 1fr; }
   .cs-head h1, .cs-head .tb, .cs-head .sum, .note, .cs-body .label, .cs-body .text, .cs-body ol.keys { grid-column: 1 / -1; }
-  .callout span { font-size: 10px; padding: 4px 5px; white-space: normal; width: max-content; max-width: 46vw; }
+  .callout span { font-size: 0; padding: 0; width: 18px; height: 18px; display: grid; place-items: center; }
+  .callout span::before { content: attr(data-n); font: 500 11px var(--mono); }
+  .legend { display: block; grid-column: 1 / -1; margin: -24px 0 0; padding: 0; list-style: none; counter-reset: l; }
+  .legend li { counter-increment: l; font: 400 12px/1.5 var(--mono); padding: 8px 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 28px 1fr; align-items: start; }
+  .legend li::before { content: counter(l); background: var(--signal); color: var(--ink); width: 18px; height: 18px; display: grid; place-items: center; font-weight: 500; }
   .pager { grid-template-columns: 1fr; }
   .pager a + a { border-left: 0; border-top: 1px solid var(--ink); text-align: left; }
 }

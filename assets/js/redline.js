@@ -96,6 +96,7 @@ export function mountRedlines(root = document.body, { animate = false } = {}) {
   const nodes = [...root.querySelectorAll('[data-spec]')];
   const marks = new Map(); // node -> [elements in layer]
   let frame = 0;
+  let timer = 0;
 
   function place(tag, x, y, maxX) {
     tag.style.left = `${x}px`;
@@ -105,12 +106,16 @@ export function mountRedlines(root = document.body, { animate = false } = {}) {
   }
 
   function draw() {
+    cancelAnimationFrame(frame);
+    clearTimeout(timer);
     frame = 0;
+    timer = 0;
     layer.replaceChildren();
     marks.clear();
     const sx = window.scrollX;
     const sy = window.scrollY;
     const maxX = document.documentElement.clientWidth - 4;
+    layer.style.height = '0px'; // measure the page without the layer's own old height
     layer.style.height = `${document.documentElement.scrollHeight}px`;
 
     for (const node of nodes) {
@@ -160,7 +165,12 @@ export function mountRedlines(root = document.body, { animate = false } = {}) {
     }
   }
 
-  const schedule = () => { if (!frame) frame = requestAnimationFrame(draw); };
+  // rAF for smooth redraws; the timer covers tabs where frames are paused.
+  const schedule = () => {
+    if (frame || timer) return;
+    frame = requestAnimationFrame(draw);
+    timer = setTimeout(draw, 150);
+  };
   const hot = (node, on) => (marks.get(node) || []).forEach((m) => m.classList.toggle('is-hot', on));
 
   for (const node of nodes) {

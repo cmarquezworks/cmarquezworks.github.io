@@ -134,8 +134,11 @@ function page(c, i) {
           <source type="image/webp" srcset="../assets/img/work/${c.slug}-800.webp 800w, ../assets/img/work/${c.slug}-1600.webp 1600w, ../assets/img/work/${c.slug}-2400.webp 2400w" sizes="(max-width: 1400px) 92vw, 1320px">
           <img src="../assets/img/work/${c.slug}-1600.jpg" width="1600" height="1066" alt="${esc(c.alt)}">
         </picture>
-${c.callouts.map((k) => `        <div class="callout ${k.cls}" style="--x:${k.x}%;--y:${k.y}%;--w:${k.w}%;--h:${k.h}%" aria-hidden="true"><span>${esc(k.label)}</span></div>`).join('\n')}
+${c.callouts.map((k, n) => `        <div class="callout ${k.cls}" style="--x:${k.x}%;--y:${k.y}%;--w:${k.w}%;--h:${k.h}%" aria-hidden="true"><span data-n="${n + 1}">${esc(k.label)}</span></div>`).join('\n')}
       </figure>
+      <ol class="legend" aria-label="Notes on the screenshot">
+${c.callouts.map((k) => `        <li>${esc(k.label)}</li>`).join('\n')}
+      </ol>
 
       <h2 class="label">The brief</h2>
       <p class="text" data-spec="type">${esc(c.brief)}</p>
