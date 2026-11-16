@@ -126,11 +126,11 @@ section { padding-block: clamp(72px, 11vw, 140px); border-top: 1px solid var(--r
 .tb { border: 1px solid var(--ink); font: 400 12px/1.4 var(--mono); width: 100%; border-collapse: collapse; }
 .tb th, .tb td { border-top: 1px solid var(--ink); padding: 8px 10px; text-align: left; vertical-align: top; }
 .tb tr:first-child th, .tb tr:first-child td { border-top: 0; }
-.tb th { width: 34%; font-weight: 400; color: var(--graphite); border-right: 1px solid var(--ink); text-transform: uppercase; letter-spacing: .06em; font-size: 11px; }
+.tb th { width: 34%; font-weight: 400; color: var(--graphite); border-right: 1px solid var(--ink); text-transform: uppercase; letter-spacing: .06em; font-size: 12px; }
 
 /* shipped list */
 .parts { width: 100%; border-collapse: collapse; }
-.parts th { font: 400 11px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--graphite); text-align: left; padding: 0 12px 12px 0; border-bottom: 1px solid var(--ink); }
+.parts th { font: 400 12px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--graphite); text-align: left; padding: 0 12px 12px 0; border-bottom: 1px solid var(--ink); }
 .parts td { padding: 0; border-bottom: 1px solid var(--rule); vertical-align: middle; }
 .parts td > * { display: block; padding: 18px 12px 18px 0; }
 .parts .no { font: 400 12px var(--mono); color: var(--graphite); width: 64px; }
@@ -161,13 +161,13 @@ section { padding-block: clamp(72px, 11vw, 140px); border-top: 1px solid var(--r
 
 .ruler { margin-top: clamp(56px, 8vw, 96px); --years: 13; }
 .ruler .scale { display: grid; grid-template-columns: repeat(var(--years), 1fr); border-top: 1px solid var(--ink); }
-.ruler .scale span { font: 400 11px var(--mono); color: var(--graphite); padding-top: 8px; border-left: 1px solid var(--ink); padding-left: 6px; height: 28px; }
+.ruler .scale span { font: 400 12px var(--mono); color: var(--graphite); padding-top: 8px; border-left: 1px solid var(--ink); padding-left: 6px; height: 28px; }
 .ruler .bars { display: grid; grid-template-columns: repeat(calc(var(--years) * 12), 1fr); row-gap: 28px; margin-top: 22px; list-style: none; padding: 0; }
 .ruler .bar { grid-column: var(--s) / var(--e); grid-row: var(--r); min-width: 0; }
 .ruler .bar::before { content: ''; display: block; height: 8px; background: var(--ink); }
 .ruler .bar.now::before { background: repeating-linear-gradient(90deg, var(--ink) 0 6px, transparent 6px 10px); }
 .ruler .bar b { display: block; font: 400 24px/1.1 var(--serif); margin-top: 10px; white-space: nowrap; }
-.ruler .bar small { display: block; font: 400 11px/1.5 var(--mono); color: var(--graphite); margin-top: 4px; white-space: nowrap; }
+.ruler .bar small { display: block; font: 400 12px/1.5 var(--mono); color: var(--graphite); margin-top: 4px; white-space: nowrap; }
 
 /* contact */
 .contact h2 { font: 400 clamp(40px, 6vw, 84px)/1 var(--serif); grid-column: 1 / -1; letter-spacing: -.015em; }
@@ -175,7 +175,7 @@ section { padding-block: clamp(72px, 11vw, 140px); border-top: 1px solid var(--r
 .mail:hover { color: var(--graphite); }
 .contact .rows { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); margin-top: 48px; }
 .contact .rows > * { padding: 18px 16px 0 0; }
-.contact .rows .mono { color: var(--graphite); display: block; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em; font-size: 11px; }
+.contact .rows .mono { color: var(--graphite); display: block; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em; font-size: 12px; }
 .contact .rows a { text-decoration: none; display: inline-flex; min-height: 44px; align-items: center; font-weight: 500; }
 
 /* footer */
@@ -194,7 +194,7 @@ section { padding-block: clamp(72px, 11vw, 140px); border-top: 1px solid var(--r
 .shot { position: relative; margin: 0; outline: 1px solid var(--ink); background: var(--paper-2); }
 .shot img { width: 100%; }
 .callout { position: absolute; left: var(--x); top: var(--y); width: var(--w); height: var(--h); border: 1.5px dashed var(--signal); pointer-events: none; }
-.callout span { position: absolute; left: -1.5px; bottom: calc(100% + 4px); background: var(--signal); color: var(--ink); font: 500 11px/1 var(--mono); padding: 5px 7px; white-space: nowrap; }
+.callout span { position: absolute; left: -1.5px; bottom: calc(100% + 4px); background: var(--signal); color: var(--ink); font: 500 12px/1 var(--mono); padding: 5px 7px; white-space: nowrap; }
 .callout.below span { bottom: auto; top: calc(100% + 4px); }
 .callout.right span { left: auto; right: -1.5px; }
 body.inspect-off .callout { opacity: 0; }
@@ -225,7 +225,7 @@ body.inspect-off .callout { opacity: 0; }
 .rl-hline { height: 0; border-top: 1px solid var(--signal); }
 .rl-hline::before, .rl-hline::after { top: -5px; width: 1px; height: 9px; }
 .rl-hline::before { left: 0; } .rl-hline::after { right: 0; }
-.rl-tag { background: var(--signal); color: var(--ink); font: 500 11px/1 var(--mono); padding: 5px 7px; white-space: nowrap; }
+.rl-tag { background: var(--signal); color: var(--ink); font: 500 12px/1 var(--mono); padding: 5px 7px; white-space: nowrap; }
 .rl-tag.rl-ink { background: var(--ink); color: var(--paper); }
 .rl-animate .rl-box, .rl-animate .rl-vline, .rl-animate .rl-hline { animation: rl-draw .7s var(--ease) .5s both; }
 .rl-animate .rl-tag { animation: rl-type .5s steps(16) 1s both; }
@@ -246,7 +246,7 @@ body.inspect-off .callout { opacity: 0; }
   .steps .n { top: 12px; }
   .about-text, .tools { grid-column: 1 / span 9; }
 }
-@media (max-width: 1240px) {
+@media (max-width: 1300px) {
   .ruler .scale { display: none; }
   .ruler .bars { grid-template-columns: 1fr; row-gap: 0; }
   .ruler .bar { grid-column: 1 / -1; grid-row: auto; display: grid; grid-template-columns: 8px 1fr; column-gap: 16px; padding-block: 14px; border-top: 1px solid var(--rule); }
@@ -284,7 +284,7 @@ body.inspect-off .callout { opacity: 0; }
   .contact .rows { grid-template-columns: 1fr; }
   .cs-head h1, .cs-head .tb, .cs-head .sum, .note, .cs-body .label, .cs-body .text, .cs-body ol.keys { grid-column: 1 / -1; }
   .callout span { font-size: 0; padding: 0; width: 18px; height: 18px; display: grid; place-items: center; }
-  .callout span::before { content: attr(data-n); font: 500 11px var(--mono); }
+  .callout span::before { content: attr(data-n); font: 500 12px var(--mono); }
   .legend { display: block; grid-column: 1 / -1; margin: -24px 0 0; padding: 0; list-style: none; counter-reset: l; }
   .legend li { counter-increment: l; font: 400 12px/1.5 var(--mono); padding: 8px 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 28px 1fr; align-items: start; }
   .legend li::before { content: counter(l); background: var(--signal); color: var(--ink); width: 18px; height: 18px; display: grid; place-items: center; font-weight: 500; }
