@@ -54,10 +54,10 @@ function drawPoster(g, w, h, L) {
   const b2 = b1 + s2 * 0.98;
   g.fillText('MARQUEZ', L.pad, b2);
   if ('fontStretch' in g) g.fontStretch = 'normal';
-  g.font = `500 ${L.portrait ? 11 : 12}px "JetBrains Mono", monospace`;
+  g.font = '500 12px "JetBrains Mono", monospace';
   g.fillStyle = INK;
   const rowW = L.portrait ? w - L.pad * 2 : L.sx - L.pad * 2;
-  ['(01) DESIGN', '(02) SPEC', '(03) BUILD', '(04) SHIP'].forEach((t, i) => g.fillText(t, L.pad + (i * rowW) / 4, b2 + 44));
+  ['UI/UX DESIGN', 'FRONTEND', 'SINCE 2014'].forEach((t, i) => g.fillText(t, L.pad + (i * rowW) / 3, b2 + 44));
   g.fillRect(L.pad, b2 + 56, rowW, 2);
   // the intro sentence, set in the poster so the glass bends it too
   const size = L.portrait ? 17 : 24;
@@ -71,7 +71,7 @@ function drawPoster(g, w, h, L) {
     if (g.measureText(test).width > maxW && line) { g.fillText(line, L.pad, y); line = word; y += size * 1.35; } else line = test;
   }
   if (line && y < h - L.bar - 8) g.fillText(line, L.pad, y);
-  g.font = `500 ${L.portrait ? 11 : 12}px "JetBrains Mono", monospace`;
+  g.font = '500 12px "JetBrains Mono", monospace';
   g.fillText('PORTFOLIO / 2014—2026', L.pad, L.pad + 14);
   if (!L.portrait) {
     g.textAlign = 'right';
@@ -174,7 +174,12 @@ export function initGlass(section) {
   const dropBuf = new Float32Array(12);
   const t0 = performance.now();
 
-  function rest() { tx = W * 0.72; ty = (H - L.bar) * 0.42; }
+  // Where the glass waits: over the poster's shapes, never on the intro sentence. A phone has no
+  // cursor to move it out of the way, so there it sits on the orange circle below the text.
+  function rest() {
+    if (L.portrait) { tx = L.circle.x - L.circle.r * 0.35; ty = L.circle.y; return; }
+    tx = W * 0.76; ty = (H - L.bar) * 0.42;
+  }
 
   function paint() {
     const r = section.getBoundingClientRect();
@@ -232,10 +237,15 @@ export function initGlass(section) {
     raf = 0;
     if (!vis || document.hidden || paused) return;
     const t = (now - t0) / 1000;
-    if (now - last > 2200) {
+    if (now - last > 2200) { // idle: drift around the poster's shapes, clear of the text
       const U = H - L.bar;
-      tx = W * 0.5 + Math.cos(t * 0.5) * W * 0.3;
-      ty = U * 0.45 + Math.sin(t * 0.8) * U * 0.22;
+      if (L.portrait) {
+        tx = L.circle.x - L.circle.r * 0.35 + Math.cos(t * 0.5) * W * 0.18;
+        ty = L.circle.y + Math.sin(t * 0.8) * U * 0.05;
+      } else {
+        tx = W * 0.76 + Math.cos(t * 0.5) * W * 0.15;
+        ty = U * 0.45 + Math.sin(t * 0.8) * U * 0.22;
+      }
     }
     mx += (tx - mx) * 0.1;
     my += (ty - my) * 0.1;
