@@ -163,7 +163,7 @@ ${c.did.map((d) => `        <li><span>${esc(d)}</span></li>`).join('\n')}
   <div class="wrap">
     <span>© 2026 Christian Marquez</span>
     <a class="link" href="mailto:designdadstudio@gmail.com">designdadstudio@gmail.com</a>
-    <a class="link" href="https://www.linkedin.com/in/marky939/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="link" href="https://www.linkedin.com/in/cmarquezworks/" target="_blank" rel="noopener">LinkedIn ↗</a>
     <span>This page: <span data-weight>measuring…</span></span>
   </div>
 </footer>
