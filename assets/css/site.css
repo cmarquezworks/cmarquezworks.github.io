@@ -186,6 +186,7 @@ a:not(.print-in, .sticky, .tab, .skip, .logo):hover, a:not(.print-in, .sticky, .
 .tl-jobs .hand { display: block; font-size: 30px; color: var(--ink); }
 .tl-jobs .typed { display: block; font-size: 14px; line-height: 1.4; color: var(--ink-2); }
 .tl-jobs li.now .hand { color: var(--blue); }
+.tl-note { position: absolute; left: 112px; top: var(--y); transform: rotate(-4deg); font-size: 30px; }
 
 /* contact: a yellow legal pad */
 .pad {

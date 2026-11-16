@@ -22,9 +22,10 @@ export function plan(group) {
   });
   const inkStart = prints.length ? 560 + (prints.length - 1) * 140 : 0;
   const ink = [...group.querySelectorAll('.mark, .hand')].filter((el) => own(group, el) && !el.classList.contains('pop'));
+  const step = Number(group.dataset.step) || 230; // busy groups (the timeline) can write faster
   ink.forEach((el, i) => {
     const d = el.classList.contains('mark') ? drawDuration(lengthOf(el)) : writeDuration(el.textContent);
-    el.style.setProperty('--delay', `${stagger(i, 230, inkStart)}ms`);
+    el.style.setProperty('--delay', `${stagger(i, step, inkStart)}ms`);
     el.style.setProperty('--d', `${d}ms`);
   });
 }
