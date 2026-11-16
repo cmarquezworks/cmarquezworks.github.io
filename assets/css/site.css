@@ -354,3 +354,9 @@ section { padding-block: clamp(80px, 11vw, 150px); border-top: 1px solid var(--r
   .hero--grid { padding-bottom: 150px; }
   .hero--grid .lm-stage, .hero-copy { width: 100%; }
 }
+
+/* ---------- per-section entrances (sections.js) ---------- */
+:root { --motion: grid; }
+.tokw { display: inline-block; white-space: nowrap; }
+.tok { display: inline-block; }
+.sec-wait .tok, .sec-wait[data-stagger] > * { opacity: 0; }
