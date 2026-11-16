@@ -1,9 +1,9 @@
 import { initGlass } from './glass.js';
 import { initContact } from './contact.js';
 import { initResume } from './resume.js';
-import { initLayoutMachine } from './layout-machine.js';
 import { initLens, initPeek } from './lens.js';
 import { initAssemble } from './reveal.js';
+import { initDrift, initGlassPanels } from './surface.js';
 
 document.documentElement.classList.add('js');
 
@@ -11,11 +11,11 @@ const hero = document.querySelector('.hero');
 if (hero) initGlass(hero);
 initContact(); // builds the contact panel, which has its own résumé button…
 initResume(); // …so the résumé buttons are enhanced after it exists
-const about = document.querySelector('.lm-pin');
-if (about) initLayoutMachine(about);
 initLens();
 initPeek();
 initAssemble();
+initDrift();
+initGlassPanels();
 
 // Footer: what this visit actually downloaded.
 addEventListener('load', () => setTimeout(() => {

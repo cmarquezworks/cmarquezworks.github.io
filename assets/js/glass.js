@@ -62,7 +62,7 @@ function drawPoster(g, w, h, L) {
   // the intro sentence, set in the poster so the glass bends it too
   const size = L.portrait ? 17 : 24;
   g.font = `500 ${size}px Archivo, sans-serif`;
-  const words = 'I design the interface, then I build it. Nine years, eleven shipped sites, clients in the Philippines, Canada and Japan.'.split(' ');
+  const words = 'I design the interface, then I build it. 9+ years of UI/UX and frontend work for clients in the Philippines, Canada and Japan.'.split(' ');
   const maxW = Math.min(rowW, size * 22);
   let line = '';
   let y = b2 + 56 + size * 2.4;
