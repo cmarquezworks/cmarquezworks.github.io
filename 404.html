@@ -6,11 +6,11 @@
 <title>Page not found · Christian Marquez</title>
 <meta name="description" content="This page does not exist. Go back to Christian Marquez's portfolio.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#F3F0E8">
+<meta name="theme-color" content="#EEF0F3">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/assets/css/site.css">
 <script type="module" src="/assets/js/site.js"></script>
 </head>
@@ -20,16 +20,17 @@
   <div class="wrap">
     <a class="mark" href="/" aria-label="Christian Marquez, home">cm<b>/</b></a>
     <nav class="nav" aria-label="Main"><a href="/#work">Work</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav>
-    <button class="inspect" type="button" aria-pressed="true" title="Show or hide the design specs (key I)"><span class="sw" aria-hidden="true"></span>Inspect <span class="state">on</span> <kbd aria-hidden="true">I</kbd></button>
+    <a class="resume-btn resume-btn--icon" href="/assets/resume.pdf" download="Christian-Marquez-Resume.pdf" aria-label="Download résumé (PDF)"><span class="rb-label">CV</span><span class="rb-ic" aria-hidden="true">↓</span></a>
+    <a class="contact-btn contact-btn--sm" href="mailto:designdadstudio@gmail.com?subject=Full-time%20role%3A%20UI%2FUX%20%2B%20frontend">Work with me <span aria-hidden="true">→</span></a>
   </div>
 </header>
 <main id="main">
-  <section class="hero" data-enter>
-    <div class="wrap grid">
-      <p class="hero-kicker mono">Error 404 · nothing at this address</p>
-      <div class="hero-name"><h1 data-spec="box" data-spec-always data-spec-note="0 pages found"><span>Not</span><span><em>here.</em></span></h1></div>
-      <p class="hero-lead">The page you asked for doesn't exist, or it moved. The work is one click away.</p>
-      <div class="hero-cta"><a class="btn btn-solid" href="/">Back to the portfolio</a></div>
+  <section class="e404">
+    <div class="wrap">
+      <p class="mono" style="color:var(--mute)">Error 404 · nothing at this address</p>
+      <h1>Not <em>here.</em></h1>
+      <p style="max-width:36ch;margin-top:24px;font-size:20px">The page you asked for doesn't exist, or it moved. The work is one click away.</p>
+      <div class="contact-actions"><a class="contact-btn contact-btn--xl" data-plain href="/">Back to the portfolio <span aria-hidden="true">→</span></a></div>
     </div>
   </section>
 </main>

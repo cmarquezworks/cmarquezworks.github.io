@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AllCare case study · Christian Marquez</title>
 <meta name="description" content="AllCare bundles worker benefits (HMO, life insurance, teleconsultation, dental care and more) into one membership. I led the redesign of the public site and the whole logged-in side, then built both inside the Rails app.">
-<meta name="theme-color" content="#F3F0E8">
+<meta name="theme-color" content="#EEF0F3">
 <link rel="canonical" href="https://csmarquez939.github.io/work/allcare.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AllCare case study · Christian Marquez">
@@ -15,13 +15,12 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/css/site.css">
 <script type="module" src="../assets/js/site.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="cols" aria-hidden="true"><div class="wrap"><div class="grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div>
 
 <header class="site-head">
   <div class="wrap">
@@ -32,9 +31,8 @@
       <a href="../index.html#contact">Contact</a>
     </nav>
     <span class="status"><i aria-hidden="true"></i>Available now</span>
-    <button class="inspect" type="button" aria-pressed="true" title="Show or hide the design specs (key I)">
-      <span class="sw" aria-hidden="true"></span>Inspect <span class="state">on</span> <kbd aria-hidden="true">I</kbd>
-    </button>
+    <a class="resume-btn resume-btn--icon" href="../assets/resume.pdf" download="Christian-Marquez-Resume.pdf" aria-label="Download résumé (PDF)"><span class="rb-label">CV</span><span class="rb-ic" aria-hidden="true">↓</span></a>
+    <a class="contact-btn contact-btn--sm" href="mailto:designdadstudio@gmail.com?subject=Full-time%20role%3A%20UI%2FUX%20%2B%20frontend">Work with me <span aria-hidden="true">→</span></a>
   </div>
 </header>
 
@@ -42,9 +40,9 @@
   <section class="cs-head">
     <div class="wrap grid">
       <a class="back link" href="../index.html#work">← All work</a>
-      <h1 data-spec="type" data-spec-always>AllCare</h1>
+      <h1>AllCare</h1>
       <table class="tb">
-        <tr><th scope="row">Sheet</th><td>01 / 03</td></tr>
+        <tr><th scope="row">Case</th><td>01 / 03</td></tr>
         <tr><th scope="row">Role</th><td>Lead: redesign + frontend</td></tr>
         <tr><th scope="row">Stack</th><td>Ruby on Rails</td></tr>
         <tr><th scope="row">Until</th><td>2024</td></tr>
@@ -55,16 +53,16 @@
     </div>
   </section>
 
-  <section class="cs-body" aria-label="Case study">
+  <section class="cs-body" aria-label="Case study" data-assemble>
     <div class="wrap grid">
-      <figure class="shot">
+      <figure class="shot lensable" data-zoom="../assets/img/work/allcare-2400.webp" data-a="wipe">
         <picture>
           <source type="image/webp" srcset="../assets/img/work/allcare-800.webp 800w, ../assets/img/work/allcare-1600.webp 1600w, ../assets/img/work/allcare-2400.webp 2400w" sizes="(max-width: 1400px) 92vw, 1320px">
           <img src="../assets/img/work/allcare-1600.jpg" width="1600" height="1066" alt="AllCare home page: a woman at a laptop beside the MyBenefits app on a phone">
         </picture>
-        <div class="callout below right" style="--x:81%;--y:2.5%;--w:8%;--h:5.5%" aria-hidden="true"><span data-n="1">secondary action, outlined</span></div>
-        <div class="callout below" style="--x:5%;--y:15%;--w:19.5%;--h:60%" aria-hidden="true"><span data-n="2">dashboard: one action per card</span></div>
-        <div class="callout below right" style="--x:58%;--y:25%;--w:31.5%;--h:40%" aria-hidden="true"><span data-n="3">headline → detail → one button</span></div>
+        <div class="callout right" style="--x:81%;--y:2.5%;--w:8%;--h:5.5%" aria-hidden="true"><span data-n="1">secondary action, outlined</span></div>
+        <div class="callout " style="--x:5%;--y:15%;--w:19.5%;--h:60%" aria-hidden="true"><span data-n="2">dashboard: one action per card</span></div>
+        <div class="callout right" style="--x:58%;--y:25%;--w:31.5%;--h:40%" aria-hidden="true"><span data-n="3">headline → detail → one button</span></div>
       </figure>
       <ol class="legend" aria-label="Notes on the screenshot">
         <li>secondary action, outlined</li>
@@ -73,7 +71,7 @@
       </ol>
 
       <h2 class="label">The brief</h2>
-      <p class="text" data-spec="type">Make a benefits platform easy to understand and easy to use: public pages that tell people what they get, and a logged-in area where members find each benefit and act on it.</p>
+      <p class="text">Make a benefits platform easy to understand and easy to use: public pages that tell people what they get, and a logged-in area where members find each benefit and act on it.</p>
 
       <h2 class="label">What I did</h2>
       <ol class="keys">
@@ -85,6 +83,16 @@
 
       <h2 class="label">What shipped</h2>
       <p class="text">The redesigned public site and the member dashboard, live in the Rails app. <a class="link" href="https://www.allcare.ph/" target="_blank" rel="noopener">See it live ↗</a></p>
+    </div>
+  </section>
+
+  <section class="cs-cta" aria-labelledby="cta-h">
+    <div class="wrap">
+      <h2 id="cta-h">Like this work? <em>Let's talk.</em></h2>
+      <div class="contact-actions">
+        <a class="contact-btn contact-btn--xl" href="mailto:designdadstudio@gmail.com?subject=Full-time%20role%3A%20UI%2FUX%20%2B%20frontend">Work with me <span aria-hidden="true">→</span></a>
+        <a class="resume-btn resume-btn--xl" href="../assets/resume.pdf" download="Christian-Marquez-Resume.pdf"><span class="rb-label">Download résumé</span><span class="rb-ic" aria-hidden="true">↓</span></a>
+      </div>
     </div>
   </section>
 
