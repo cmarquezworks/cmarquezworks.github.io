@@ -38,15 +38,17 @@
 </header>
 
 <main id="main">
-  <section class="hero" id="top" aria-labelledby="hero-h">
-    <canvas class="hero-canvas" aria-hidden="true"></canvas>
-    <div class="hero-text">
-      <h1 id="hero-h">Christian Marquez</h1>
-      <p>UI/UX designer and frontend developer with 9+ years of experience. I design the interface, then I build it, for clients in the Philippines, Canada and Japan.</p>
-    </div>
-    <div class="hero-tools">
-      <p class="hero-hint mono" aria-hidden="true">Move to steer the glass · click to drop a bead</p>
-      <button class="hero-pause" type="button" aria-pressed="false"><span class="hp-i" aria-hidden="true"></span><span class="hp-l">Pause glass</span></button>
+  <section class="hero hero--grid" id="top" aria-labelledby="hero-h">
+    <div class="wrap hero-frame">
+      <h1 id="hero-h" class="sr">Christian Marquez, UI/UX designer and frontend developer</h1>
+      <div class="lm-stage" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="hero-lead">UI/UX designer and frontend developer with 9+ years of experience. I design the interface, then I build it, for clients in the Philippines, Canada and Japan.</p>
+        <div class="hero-meta">
+          <p class="lm-hud mono">Composition 01 / 06 · Classic</p>
+          <button class="hero-pause" type="button" aria-pressed="false"><span class="hp-i" aria-hidden="true"></span><span class="hp-l">Pause layout</span></button>
+        </div>
+      </div>
     </div>
     <div class="hero-bar">
       <div class="wrap">
@@ -151,34 +153,29 @@
     </div>
   </section>
 
-  <section class="glass-sec" id="about" aria-labelledby="about-h">
-    <div class="poster-bg" aria-hidden="true">
-      <span class="pb-stripes" data-drift="-0.14"></span>
-      <span class="pb-circle" data-drift="0.22"></span>
-      <span class="pb-word" data-drift="-0.08">ABOUT</span>
-    </div>
+  <section class="about-swiss" id="about" aria-labelledby="about-h" data-assemble>
     <div class="wrap">
       <div class="sec-head">
         <p class="mono">About</p>
         <h2 id="about-h">9+ years on both sides <em>of the handoff.</em></h2>
       </div>
       <div class="about-grid">
-        <div class="glass about-text">
+        <div class="about-text" data-a="up">
           <p>I started in 2014 making banners and fixing layouts, and I have worked on the web ever since. Across four companies I've been the designer, the frontend developer, and often both on the same project.</p>
           <p>At GSS Labs I led frontend for more than four years, building WordPress sites and keeping them stable. At Digiteer I led UI/UX and frontend from design to deployment and guided junior designers, then moved to frontend work across many client sites.</p>
           <p>After Digiteer I spent a year on TikTok as a content creator, making short videos with AI tools and reading the numbers on every one. It taught me how fast people decide to stay or scroll, which is the same question every landing page has to answer.</p>
         </div>
-        <ul class="glass tools" aria-label="Tools">
+        <ul class="tools" aria-label="Tools" data-a="up">
           <li>Figma</li><li>Photoshop</li><li>HTML</li><li>CSS</li><li>Ruby on Rails views</li><li>WordPress</li><li>Webflow</li><li>PHP / Laravel</li><li>SEO basics</li><li>ChatGPT</li><li>Claude</li><li>Gemini</li><li>CapCut</li>
         </ul>
       </div>
-      <ol class="glass steps" aria-label="How a page gets made">
+      <ol class="steps" aria-label="How a page gets made" data-a="up">
         <li><span class="n" aria-hidden="true">01</span><h3>Understand</h3><p>What does the business need this page to do? I start there, with who is reading and on what screen.</p></li>
         <li><span class="n" aria-hidden="true">02</span><h3>Design</h3><p>Layout, type and colour in Figma, tried against the real content, never placeholder text.</p></li>
         <li><span class="n" aria-hidden="true">03</span><h3>Spec</h3><p>Every size, gap and colour written down for the build. Nothing left to guess.</p></li>
         <li><span class="n" aria-hidden="true">04</span><h3>Build</h3><p>Responsive HTML and CSS in the real stack: Rails views, WordPress or Webflow. Then I check it on real phones.</p></li>
       </ol>
-      <div class="glass ruler" role="group" aria-label="Career timeline, 2014 to now">
+      <div class="ruler" data-a="up" role="group" aria-label="Career timeline, 2014 to now">
         <div class="scale" aria-hidden="true"><span>2014</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span></div>
         <ol class="bars">
           <li class="bar" style="--s:1;--e:25;--r:1"><b>Core Enabler</b><small>UI/UX developer + graphic artist</small><small>2014–2016</small></li>
@@ -192,15 +189,11 @@
     </div>
   </section>
 
-  <section class="contact glass-sec" id="contact" aria-labelledby="contact-h">
-    <div class="poster-bg" aria-hidden="true">
-      <span class="pb-circle pb-circle--blue" data-drift="0.18"></span>
-      <span class="pb-stripes pb-stripes--low" data-drift="-0.1"></span>
-    </div>
+  <section class="contact" id="contact" aria-labelledby="contact-h">
     <div class="wrap">
       <p class="mono" style="color:var(--mute)">Contact</p>
       <h2 class="contact-h" id="contact-h">Let's <em>work.</em></h2>
-      <div class="glass contact-card">
+      <div class="contact-card">
       <p class="contact-sub">Available now for full-time, contract or project work.</p>
       <div class="contact-actions">
         <a class="contact-btn contact-btn--xl" href="mailto:designdadstudio@gmail.com?subject=Full-time%20role%3A%20UI%2FUX%20%2B%20frontend">Work with me <span aria-hidden="true">→</span></a>

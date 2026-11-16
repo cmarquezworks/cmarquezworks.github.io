@@ -4,7 +4,6 @@ import { clamp, easeOutCubic, easeInOutCubic, easeInOutQuint, easeOutBack, mix, 
 import { PRINT, printState } from '../assets/js/resume.js';
 import { EMAIL, MODES, mailtoFor, irisRadius } from '../assets/js/contact.js';
 import { lensBackground } from '../assets/js/lens.js';
-import { fitFontSize, posterLayout } from '../assets/js/glass.js';
 
 const near = (a, b, e = 1e-6) => assert.ok(Math.abs(a - b) < e, `${a} should be close to ${b}`);
 
@@ -60,16 +59,4 @@ test('lens: the magnified point stays under the cursor', () => {
   const b = lensBackground(100, 50, 400, 300, 2, 90);
   assert.deepEqual(b.size, [800, 600]);
   assert.deepEqual(b.pos, [-110, -10]);
-});
-
-test('glass: font fitting and poster geometry stay in bounds', () => {
-  assert.equal(fitFontSize(500, 250, 140), 50);
-  assert.equal(fitFontSize(200, 1000, 140), 140);
-  for (const [w, h] of [[1440, 836], [768, 960], [375, 700], [320, 560]]) {
-    const L = posterLayout(w, h);
-    assert.ok(L.pad > 0 && L.pad < w / 4, `pad at ${w}`);
-    assert.ok(L.circle.x - L.circle.r >= 0 && L.circle.x + L.circle.r <= w, `circle x at ${w}`);
-    assert.ok(L.circle.y + L.circle.r <= h - L.bar, `circle y at ${w}`);
-    assert.ok(L.nameMaxW > 0 && L.nameMaxW <= w, `name width at ${w}`);
-  }
 });

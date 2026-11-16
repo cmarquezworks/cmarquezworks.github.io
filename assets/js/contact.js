@@ -1,4 +1,4 @@
-// contact.js: "glass iris, then recompose". Every a.contact-btn is a real mailto: link (works with JS off);
+// contact.js: "column shutter, then recompose". Every a.contact-btn is a real mailto: link (works with JS off);
 // with JS it opens a full-screen panel that builds itself out of the button that was pressed.
 import { prefersReducedMotion, EASE_OUT, EASE_IN, EASE_IN_OUT, WAVE } from './motion.js';
 
@@ -69,8 +69,15 @@ export function initContact(root = document) {
     </div>`;
   document.body.append(dlg);
 
-  const iris = dlg.querySelector('.ct-iris');
-  const rim = dlg.querySelector('.ct-rim');
+  // Grid version: the panel arrives as 12 ink columns that close in from the trigger's column outward.
+  const cols = Array.from({ length: 12 }, (_, i) => {
+    const c = document.createElement('span');
+    c.className = 'ct-col';
+    c.style.left = `${(i * 100) / 12}%`;
+    return c;
+  });
+  dlg.querySelector('.ct-iris').append(...cols);
+  const colDistance = (i, x) => Math.abs(i + 0.5 - (x / innerWidth) * 12);
   const big = dlg.querySelector('.ct-big');
   const mail = dlg.querySelector('.ct-mail');
   const subj = dlg.querySelector('.ct-subj');
@@ -165,13 +172,11 @@ export function initContact(root = document) {
     const finish = () => { busy = false; modeBs[mode].focus({ preventScroll: true }); };
     if (reduce) { finish(); return; }
     const c = centerOf(trigger);
-    const R = irisRadius(c.x, c.y, innerWidth, innerHeight);
-    [iris, rim].forEach((n) => n.getAnimations().forEach((a) => a.cancel()));
-    iris.animate([{ clipPath: `circle(0px at ${c.x}px ${c.y}px)` }, { clipPath: `circle(${R}px at ${c.x}px ${c.y}px)` }],
-      { duration: 720, easing: EASE_IN_OUT, fill: 'forwards' });
-    Object.assign(rim.style, { left: `${c.x - R}px`, top: `${c.y - R}px`, width: `${2 * R}px`, height: `${2 * R}px` });
-    rim.animate([{ transform: 'scale(.02)', opacity: 1 }, { transform: 'scale(1)', opacity: 1, offset: 0.82 }, { transform: 'scale(1)', opacity: 0 }],
-      { duration: 880, easing: EASE_IN_OUT, fill: 'forwards' });
+    cols.forEach((col, i) => {
+      col.getAnimations().forEach((a) => a.cancel());
+      col.animate([{ transform: 'scaleY(0)' }, { transform: 'scaleY(1)' }],
+        { duration: 560, delay: colDistance(i, c.x) * 34, easing: EASE_IN_OUT, fill: 'backwards' });
+    });
     parts().forEach((el, i) => {
       const r = el.getBoundingClientRect();
       const dx = c.x - (r.left + r.width / 2);
@@ -187,7 +192,7 @@ export function initContact(root = document) {
     dlg.hidden = true;
     document.documentElement.classList.remove('ct-open');
     parts().forEach((el) => el.getAnimations().forEach((a) => a.cancel()));
-    [iris, rim].forEach((n) => n.getAnimations().forEach((a) => a.cancel()));
+    cols.forEach((n) => n.getAnimations().forEach((a) => a.cancel()));
     open = false;
     busy = false;
     opener?.focus({ preventScroll: true });
@@ -198,12 +203,13 @@ export function initContact(root = document) {
     if (instant || reduce || !opener) { reset(); return; } // keyboard (Esc) closes instantly
     busy = true;
     const c = centerOf(opener);
-    const R = irisRadius(c.x, c.y, innerWidth, innerHeight);
     parts().reverse().forEach((el, i) => el.animate(
       [{ transform: 'none', opacity: 1 }, { transform: 'translateY(10px) scale(.96)', opacity: 0, filter: 'blur(4px)' }],
       { duration: 260, delay: i * 3, easing: EASE_IN, fill: 'forwards' }));
-    iris.animate([{ clipPath: `circle(${R}px at ${c.x}px ${c.y}px)` }, { clipPath: `circle(0px at ${c.x}px ${c.y}px)` }],
-      { duration: 520, delay: 180, easing: EASE_IN_OUT, fill: 'forwards' }).onfinish = reset;
+    const shut = cols.map((col, i) => col.animate(
+      [{ transform: 'scaleY(1)', transformOrigin: '50% 100%' }, { transform: 'scaleY(0)', transformOrigin: '50% 100%' }],
+      { duration: 420, delay: 180 + (12 - colDistance(i, c.x)) * 22, easing: EASE_IN_OUT, fill: 'forwards' }));
+    Promise.all(shut.map((a) => a.finished)).then(reset, reset);
   }
 
   triggers.forEach((t) => t.addEventListener('click', (e) => {
