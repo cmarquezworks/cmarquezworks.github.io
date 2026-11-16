@@ -4,6 +4,7 @@ import { initResume } from './resume.js';
 import { initLens, initPeek } from './lens.js';
 import { initAssemble } from './reveal.js';
 import { initDrift, initGlassPanels } from './surface.js';
+import { initSections } from './sections.js';
 
 document.documentElement.classList.add('js');
 
@@ -16,6 +17,7 @@ initPeek();
 initAssemble();
 initDrift();
 initGlassPanels();
+initSections();
 
 // Footer: what this visit actually downloaded.
 addEventListener('load', () => setTimeout(() => {

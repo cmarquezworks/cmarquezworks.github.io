@@ -113,7 +113,7 @@ function page(c, i) {
   <section class="cs-head">
     <div class="wrap grid">
       <a class="back link" href="../index.html#work">← All work</a>
-      <h1>${esc(c.name)}</h1>
+      <h1 data-split>${esc(c.name)}</h1>
       <table class="tb">
         <tr><th scope="row">Case</th><td>${c.no} / 03</td></tr>
         <tr><th scope="row">Role</th><td>${esc(c.role)}</td></tr>
@@ -143,7 +143,7 @@ ${c.callouts.map((k) => `        <li>${esc(k.label)}</li>`).join('\n')}
       <p class="text">${esc(c.brief)}</p>
 
       <h2 class="label">What I did</h2>
-      <ol class="keys">
+      <ol class="keys" data-stagger>
 ${c.did.map((d) => `        <li><span>${esc(d)}</span></li>`).join('\n')}
       </ol>
 
@@ -154,7 +154,7 @@ ${c.did.map((d) => `        <li><span>${esc(d)}</span></li>`).join('\n')}
 
   <section class="cs-cta" aria-labelledby="cta-h">
     <div class="wrap">
-      <h2 id="cta-h">Like this work? <em>Let's talk.</em></h2>
+      <h2 id="cta-h" data-split>Like this work? <em>Let's talk.</em></h2>
       <div class="contact-actions">
         <a class="contact-btn contact-btn--xl" href="${MAILTO}">Work with me <span aria-hidden="true">→</span></a>
         <a class="resume-btn resume-btn--xl" href="../assets/resume.pdf" download="Christian-Marquez-Resume.pdf"><span class="rb-label">Download résumé</span><span class="rb-ic" aria-hidden="true">↓</span></a>
