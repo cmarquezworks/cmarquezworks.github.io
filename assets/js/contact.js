@@ -62,7 +62,7 @@ export function initContact(root = document) {
         <button class="ct-copy" type="button"><span class="rb-fill"><span class="rb-lq">${WAVE}</span></span><span class="ct-cl">Copy email</span></button>
         <a class="ct-send" href="${mailtoFor(0)}">Open email ↗</a>
         <a class="resume-btn resume-btn--ghost" href="${cvHref}" download="Christian-Marquez-Resume.pdf"><span class="rb-label">Résumé (PDF)</span><span class="rb-ic" aria-hidden="true">↓</span></a>
-        <a class="ct-li" href="https://www.linkedin.com/in/marky939/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="ct-li" href="https://www.linkedin.com/in/cmarquezworks/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
       <p class="ct-subj mono"></p>
       <p class="sr" role="status" aria-live="polite"></p>
